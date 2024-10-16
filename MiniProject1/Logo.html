@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Web technologies and e-Services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/general.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="Logo.html" class="w3-bar-item w3-button w3-theme-l1">
+      <img id="logo" src="assets/logo.png" alt="Logo">
+    </a>
+    <a href="ThongTinMonHoc.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Thông tin môn học</a>
+    <a href="CacCongNgheWeb.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Các công nghệ Web</a>
+    <a href="ThongTinSinhVien.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Thông tin sinh viên</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#brief-info">Web technologies and e-Services</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#objectives">Objectives</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#content">Content</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div id="brief-info" class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">IT4409/IT4409E Web technologies and e-Services</h1>
+      <ul>
+        <li>Credits&#58; 3&#40;2-2-0-6&#41;</li>
+        <li>Prerequisite&#58; None</li>
+        <li>Pre-courses&#58; &#40;IT3090 or IT3091&#41; and &#40;IT3100 or IT3600&#41;</li>
+        <li>Corequisite Courses&#58; None</li>
+      </ul>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="objectives" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Objectives</h1>
+      <p>The course provides students with the necessary knowledge to build and develop online applications and services on the web environment. After completing this couse, students are able to&#58;</p>
+      <ul>
+        <li>Use a programming language such as JSP, PHP to develop web applications for different areas such as content management system &#40;CMS&#41;, portal, or online applications &#40;eCommerce, eLearning, eGoverment, v.v..&#41;</li>
+        <li>Understand the popular web technologies, platforms, frameworks.</li>
+      </ul>
+      <p>In addition, the course also provides students with skills of teamwork and presentation, and attitudes needed to work and apply the techniques in software projects and companies in the future.</p>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="content" class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Content</h1>
+      <p>Internet, web, architecture of web application, HTML, CSS, Javascript, PHP, JSP, Ajax, DOM, XML, SOA, website security, etc.</p>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <!-- <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">&raquo;</a>
+    </div>
+  </div> -->
+
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+    <div class="w3-row-padding">
+      <div class="w3-twothird">
+        <h3>Web technologies and e-Services</h3>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3>MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="Logo.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

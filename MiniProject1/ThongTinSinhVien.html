@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Web technologies and e-Services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/general.css">
+<style>
+  body {
+    margin-top: 57px;
+  }
+
+  .page-container {
+    max-width:1400px; 
+    margin-left: 0;
+    transition: margin-left 0.4s
+  }
+
+  @media (min-width: 993px) {
+    .page-container {
+      margin-left: 250px;
+    }
+  }
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="Logo.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><img id="logo" src="assets/logo.png" alt="Logo"></a>
+    <a href="ThongTinMonHoc.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Thông tin môn học</a>
+    <a href="CacCongNgheWeb.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Các công nghệ Web</a>
+    <a href="ThongTinSinhVien.html" class="w3-bar-item w3-button w3-theme-l1">Thông tin sinh viên</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-third w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#education">Education</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#projects">Projects</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#activities">Extracurricular Activities</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top page-container" style="">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div id="education" class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Le Quy Don Gifted High School</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2017 - 2020</h6>
+          <p>Informatics major</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Hanoi University of Science and Technology</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021 - present</h6>
+          <p>Information and Technology</p><br>
+        </div>
+      </div>
+    
+      <div id="projects" class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Online Latex Editor Using VueJS on Front-end and ASP.NET core on Back-end</b></h5>
+          <h6 class="w3-text-teal">Personal Project</h6>
+          <p>Build online Latex editing tool, compiler, login and authorization in Project II</p>
+          <ul>
+            <li>Build a simple structure to add, edit, delete, compile and display data added to MSSQL using ASP.NET</li>
+            <li>At the same time, build a simple interface displayed to users using VueJS</li>
+          </ul>
+          <p>Github: <a rel="noopener" href="https://github.com/cuong23ng/LatexEditor-Client-side.git" target="_blank">https://github.com/cuong23ng/LatexEditor-Client-side.git</a></p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Battleship Game Programmed in Java</b></h5>
+          <h6 class="w3-text-teal">Personal Project</h6>
+          <p>Build a ship shooting game using Java language in Project I</p>
+          <ul>
+            <li>Design simple interface design, capture mouse events</li>
+            <li>Apply simple Object-oriented programming knowledge</li>
+          </ul>
+          <p>Github: <a rel="noopener" href="https://github.com/cuong23ng/BattleShip.git" target="_blank">https://github.com/cuong23ng/BattleShip.git</a></p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Milktea store management software</b></h5>
+          <h6 class="w3-text-teal">Personal Project</h6>
+          <p>Build Milktea store software including displaying menu of store using data bending, filter by item, sort by price/name ... using VueJS</p>
+          <ul>
+            <li>Design simple interface design, capture mouse events</li>
+            <li>Apply simple Object-oriented programming knowledge</li>
+          </ul>
+          <p>Github: <a rel="noopener" href="https://github.com/cuong23ng/BattleShip.git" target="_blank">https://github.com/cuong23ng/milk-tea-store.git</a></p><br>
+        </div>
+      </div>
+
+      <div id="activities" class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Extracurricular Activities</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>HUST Innovation & Entrepreneurship Club</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021 - 2023</h6>
+          <p>Member of communications team.</p>
+          <p>Participated in organizing workshops, seminars and manyevents in conjunction with the school, especially the TechStart competition.</p>
+          <hr>
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="assets/Avatar.jpg" style="width:100%" alt="Avatar">
+        </div>
+        <div class="w3-container">
+          <h2 style="color: black;">Nguyen Hung Cuong</h2>
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Web Developer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Hanoi, Vietnam</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>cuong.ng.23@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>0838***357</p>
+          <hr>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p><span><b>Programming Languages:</b></span> C#, C, Java, JavaScript, Kotlin</p>
+          <p><span><b>DBMS:</b></span> MS SQL Server</p>
+          <p><span><b>Frameworks/Tools:</b></span> ASP.NET core, VueJS, ReactJS, BootStrap, Java Spring</p>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p><b>French:</b> DELF B1</p>
+          <p><b>English</b></p>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+</div>
+
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+    <div class="w3-row-padding">
+      <div class="w3-twothird">
+        <h3>Web technologies and e-Services</h3>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3>MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="Logo.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

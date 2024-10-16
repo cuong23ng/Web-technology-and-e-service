@@ -1,0 +1,62 @@
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+
+.content-image {
+  width: 100%;
+  align-self: center;
+  margin-bottom: 2%;
+}
+
+@media (min-width: 1480px) {
+  .content-image {
+    width: 750px;
+  }
+}
+
+.ad-image {
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+#logo {
+  width: 25px;
+}
+
+table {
+  border: 1px, solid;
+  padding: 2px;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+tr {
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid;
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+  width: 43%;
+}  
+
+li {
+  padding: 6px;
+}
+
+iframe {
+  width: 100%;
+  height: 500dp;
+}

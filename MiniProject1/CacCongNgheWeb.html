@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Web technologies and e-Services</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles/general.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="Logo.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><img id="logo" src="assets/logo.png" alt="Logo"></a>
+    <a href="ThongTinMonHoc.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Thông tin môn học</a>
+    <a href="CacCongNgheWeb.html" class="w3-bar-item w3-button w3-theme-l1">Các công nghệ Web</a>
+    <a href="ThongTinSinhVien.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Thông tin sinh viên</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#introduction">Introduction</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#classification">Classification</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#fe">Frontend Development Languages</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#be">Backend Development Languages</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#db">Databases</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#data-format">Data Format</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#protocol">Web Protocols</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#graphic">Graphics</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="#ref">References</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div id="introduction" class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Introduction</h1>
+      <p>Web Technology refers to the various tools and techniques that are utilized in the process of communication between different types of devices over the Internet. A web browser is used to access web pages. Web browsers can be defined as programs that display text, data, pictures, animation, and video on the Internet. Hyperlinked resources on the World Wide Web can be accessed using software interfaces provided by Web browsers.</p>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="classification" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Web Technology can be Classified into the Following Sections:</h1>
+      <p><a href="#" target="_blank">World Wide Web (WWW)</a>: The World Wide Web is based on several different technologies: Web browsers, Hypertext Markup Language (HTML), and Hypertext Transfer Protocol (HTTP).</p>
+      <p><a href="#" target="_blank">Web Browser</a>: The web browser is an application software to explore www (World Wide Web). It provides an interface between the server and the client and requests to the server for web documents and services.</p>
+      <p><a href="#" target="_blank">Web Server</a>: Web server is a program which processes the network requests of the users and serves them with files that create web pages. This exchange takes place using Hypertext Transfer Protocol (HTTP).</p>
+      <p><a href="#" target="_blank">Web Pages</a>: Web server is a program which processes the network requests of the users and serves them with files that create web pages. This exchange takes place using Hypertext Transfer Protocol (HTTP).</p>
+      <p><a href="#" target="_blank">Web Development</a>: Web development refers to the building, creating, and maintaining of websites. It includes aspects such as web design, web publishing, web programming, and database management. It is the creation of an application that works over the internet i.e. websites.</p>
+      <p>Web Development can be Classified into Two Ways: Frontend development and Backend development</p>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+      <a href="https://nginx.org/"><img class="ad-image" src="assets/ad/nginx.png" alt="AD"></a>
+      <a href="https://www.docker.com/"><img class="ad-image" src="assets/ad/docker.png" alt="AD"></a>
+    </div>
+  </div>
+
+  <div id="fe" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Frontend Development Languages</h1>
+      <p>The part of a website that the user interacts directly is termed as front end. It is also referred to as the ‘client side’ of the application. The front-end portion is built by using some languages which are discussed below:</p>
+      <ul>
+        <li>HTML: HTML stands for Hypertext Markup Language. It is used to design the front-end portion of web pages using a markup language. HTML is the combination of Hypertext and Markup language. Hypertext defines the link between the web pages. The markup language is used to define the text documentation within the tag which defines the structure of web pages.</li>
+        <li>CSS: Cascading Style Sheets fondly referred to as CSS is a simply designed language intended to simplify the process of making web pages presentable. CSS allows you to apply styles to web pages. More importantly, CSS enables you to do this independent of the HTML that makes up each web page.</li>
+        <li>JavaScript: JavaScript is a famous scripting language used to create magic on the sites to make the site interactive for the user. It is used to enhancing the functionality of a website to running cool games and web-based software.</li>
+        <li>AJAX: Ajax is an acronym for Asynchronous Javascript and XML. It is used to communicate with the server without refreshing the web page and thus increasing the user experience and better performance.</li>
+      </ul>
+      <p>Front End Frameworks and Libraries:</p>
+      <img class="content-image" src="assets/frontenddevelopment.png" alt="">
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+      <a href="https://v2.scrimba.com/home" target="_blank"><img class="ad-image" src="assets/ad/scrimba.png" alt="AD" title="scrimba"/></a>
+      <a href="https://www.w3schools.com/" target="_blank"><img class="ad-image" src="assets/ad/w3schools.png" alt="AD" title="w3schools"/></a>
+      <a href="https://www.figma.com/" target="_blank"><img class="ad-image" src="assets/ad/figma.png" alt="AD" title="figma"></a>
+      <a href="https://angular.dev/" target="_blank"><img class="ad-image" src="assets/ad/angular.png" alt="AD" title="angular"></a>
+    </div>
+  </div>
+
+  <div id="be" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Backend Development Languages</h1>
+      <p>Backend is the server side of a website. It is the part of the website that users cannot see and interact. It is the portion of software that does not come in direct contact with the users. It is used to store and arrange data. The back end portion is built by using some languages which are discussed below:</p>
+      <ul>
+        <li>PHP: PHP is a server-side scripting language designed specifically for web development. Since PHP code executed on the server-side, so it is called a server-side scripting language.</li>
+        <li>Node.js: Node.js is an open-source and cross-platform runtime environment for executing JavaScript code outside a browser. You need to remember that NodeJS is not a framework, and it’s not a programming language. Most people are confused and understand it’s a framework or a programming language. We often use Node.js for building back-end services like APIs like Web App or Mobile App. It’s used in production by large companies such as Paypal, Uber, Netflix, Wallmart, and so on.</li>
+        <li>Python: Python is a programming language that lets you work quickly and integrate systems more efficiently.</li>
+        <li>Ruby: Ruby is a dynamic, reflective, object-oriented, general-purpose programming language. Ruby is a pure Object-Oriented language developed by Yukihiro Matsumoto. Everything in Ruby is an object except the blocks but there are replacements too for it i.e procs and lambda. The objective of Ruby’s development was to make it act as a sensible buffer between human programmers and the underlying computing machinery.</li>
+        <li>Java: Java is one of the most popular and widely used programming languages and platforms. It is highly scalable. Java components are easily available.</li>
+        <li>JavaScript: JavaScript can be used as both (front end and back end) programming.</li>
+        <li>Golang: Golang is a procedural and statically typed programming language having the syntax similar to C programming language. Sometimes it is termed as Go Programming Language.</li>
+        <li>C#: C# is a general-purpose, modern and object-oriented programming language pronounced as “C sharp”.</li>
+        <li>DBMS: The software which is used to manage database is called Database Management System (DBMS).</li>
+      </ul>
+      <p>Back End Frameworks and Technology:</p>
+      <img class="content-image" src="assets/backenddevelopment.png" alt="">
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+      <a href="https://www.freecodecamp.org/"><img class="ad-image" src="assets/ad/freecodecamp.png" alt="AD"></a>
+      <a href="https://www.jetbrains.com/idea/"><img class="ad-image" src="assets/ad/IntelliJ.png" alt="AD"></a>
+      <a href="https://nodejs.org/en"><img class="ad-image" src="assets/ad/nodejs.png" alt="AD"></a>
+      <a href="https://www.ruby-lang.org/en/"><img class="ad-image" src="assets/ad/ruby.png" alt="AD"></a>
+      <a href="https://www.postman.com/"><img class="ad-image" src="assets/ad/postman.png" alt="AD"></a>
+    </div>
+  </div>
+
+  <div id="db" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Databases</h1>
+      <p>In web technology, a database is a structured collection of data that is stored electronically and accessed via a web application. It serves as the backend component where data is stored, managed, and retrieved. Databases can be relational (like MySQL, PostgreSQL) using structured tables and SQL for queries, or non-relational (like MongoDB, CouchDB) which store data in flexible, document-oriented formats. They enable web applications to handle dynamic content, user data, transactions, and more by providing efficient storage, retrieval, and manipulation capabilities. Database management systems (DBMS) are used to interact with the database, ensuring data integrity, security, and performance.</p>
+      
+      <div>
+        <h3>Relational Database</h3>
+        <p>A relational database stores data in tables, similar to a spreadsheet, where each table has rows and columns. The rows hold individual records, and the columns define the data attributes. Tables can be linked to each other through special keys, allowing related data to be connected.</p>
+        <ul>
+          <li>Postgre SQL: PostgreSQL is a powerful, open-source relational database that supports advanced SQL features and complex queries. It handles structured data, ensures ACID compliance, and is known for its reliability and extensibility.</li>
+          <li>MariaDB: MariaDB is an open-source relational database that evolved from MySQL, offering improved performance, security, and features. It supports SQL queries, ACID compliance, and is highly compatible with MySQL.</li>
+          <li>MySQL: MySQL is an open-source relational database management system that uses SQL for managing structured data. It’s known for its reliability, ease of use, and performance, widely used in web applications.</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3>NoSql Databases</h3>
+        <p>A NoSQL database stores data in a flexible, non-tabular format, unlike traditional relational databases. Instead of using tables with rows and columns, NoSQL databases might use documents, key-value pairs, wide-columns, or graphs to store data. This allows them to handle large amounts of unstructured or semi-structured data efficiently. They are designed to scale easily and manage big data applications.</p>
+        <ul>
+          <li>Mongodb: MongoDB is a NoSQL database storing data in JSON-like documents. It handles unstructured data, supports powerful queries, and scales easily across servers, making it popular for flexible, scalable applications.</li>
+          <li>Cassandra: Apache Cassandra is an open-source NoSQL database that is used for handling big data. It has the capability to handle structure, semi-structured, and unstructured data.</li>
+          <li>Redis: Redis is an in-memory NoSQL database known for its speed. It supports various data structures like strings, hashes, and lists, making it ideal for caching, real-time analytics, and messaging.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+      <a href="https://www.mongodb.com/"><img class="ad-image" src="assets/ad/mongodb.png" alt="AD"></a>
+      <a href="https://azure.microsoft.com/en-us"><img class="ad-image" src="assets/ad/azure.png" alt="AD"></a>
+    </div>
+  </div>
+
+  <div id="data-format" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Data Format</h1>
+      <p>Format of data is used by web applications to communicate with each other. It is light weight text based data interchange format which means, it is simpler to read and write.</p>
+      <p>Below are two common data formats used in web development:</p>
+      <ul>
+        <li>XML: Extensible Markup Language (XML) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.</li>
+        <li>JSON: JSON or JavaScript Object Notation is a format for structuring data.</li>
+        <li>API: API is an abbreviation for Application Programming Interface which is a collection of communication protocols and subroutines used by various programs to communicate between them.</li>
+      </ul>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="protocol" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Web Protocols</h1>
+      <p>Web protocols are set of rules followed by everyone communicating over the web.</p>
+      <ul>
+        <li>HTTP: The Hypertext Transfer Protocol (HTTP) is designed to enable communications between clients and servers. HTTP works as a request-response protocol between a client and server. A web browser may be the client, and an application on a computer that hosts a web site may be the server.</li>
+        <li>Other Protocols: TCP/IP Model, UDP, FTP, SMTP, SOAP</li>
+      </ul>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="graphic" class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Graphics</h1>
+      <p>Graphical elements are one of the key feature of any webpage. They can be used to convey important points better than text does and beautify the webpage.</p>
+      <ul>
+        <li>Canvas: The HTML “canvas” element is used to draw graphics via JavaScript.</li>
+        <li>SVG: SVG stands for Scalable Vector Graphics. It basically defines vector-based graphics in XML format.</li>
+      </ul>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p> -->
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <div id="ref" class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">References</h1>
+      <ol>
+        <li><a href="https://www.geeksforgeeks.org/web-technology/" target="_blank">https://www.geeksforgeeks.org/web-technology/</a></li>
+        <li><a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+      </ol>
+    </div>
+    <div class="w3-third w3-container">
+      <!-- <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p> -->
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <!-- <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">&raquo;</a>
+    </div>
+  </div> -->
+
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+    <div class="w3-row-padding">
+      <div class="w3-twothird">
+        <h3>Web technologies and e-Services</h3>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3>MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="Logo.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
