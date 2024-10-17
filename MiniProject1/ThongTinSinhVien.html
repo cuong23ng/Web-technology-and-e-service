@@ -8,7 +8,11 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/general.css">
+<link rel="stylesheet" href="styles/color.css">
 <style>
   body {
     margin-top: 57px;
@@ -21,7 +25,7 @@
   }
 
   @media (min-width: 993px) {
-    .page-container {
+    .page-container, footer {
       margin-left: 250px;
     }
   }
@@ -46,9 +50,9 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#education">Education</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#projects">Projects</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="#activities">Extracurricular Activities</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#education">Education</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#projects">Projects</a>
+  <a class="w3-bar-item w3-button w3-hover-teal" href="#activities">Extracurricular Activities</a>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -60,7 +64,7 @@
   <!-- The Grid -->
   <div class="w3-row-padding">
 
-    <!-- Right Column -->
+    <!-- Left Column -->
     <div class="w3-twothird">
 
       <div id="education" class="w3-container w3-card w3-white w3-margin-bottom">
@@ -125,10 +129,10 @@
         </div>
       </div>
 
-    <!-- End Right Column -->
+    <!-- End Left Column -->
     </div>
     
-    <!-- Left Column -->
+    <!-- Right Column -->
     <div class="w3-third">
     
       <div class="w3-white w3-text-grey w3-card-4">
@@ -156,7 +160,7 @@
         </div>
       </div><br>
 
-    <!-- End Left Column -->
+    <!-- End Right Column -->
     </div>
 
   <!-- End Grid -->
@@ -165,32 +169,32 @@
   <!-- End Page Container -->
 </div>
 
-  <footer class="w3-container w3-padding-32 w3-dark-grey">
-    <div class="w3-row-padding">
-      <div class="w3-twothird">
-        <h3>Web technologies and e-Services</h3>
-        <p>Hanoi University of Science and Technology</p>
-        <p>Nguyen Hung Cuong - 20215264</p>
-      </div>
-    
-      <div class="w3-third">
-        <h3>MENU</h3>
-        <ul class="w3-ul w3-hoverable">
-          <li class="w3-padding-16">
-            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
-            <a href="Logo.html" class="w3-large" style="text-decoration: none;">Home</a>
-            <!-- <span class="w3-large">Home</span><br> -->
-            <!-- <span>Sed mattis nunc</span> -->
-          </li>
-          <li class="w3-padding-16">
-            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
-            <!-- <span class="w3-large">About me</span><br> -->
-            <!-- <span>Praes tinci sed</span> -->
-          </li> 
-        </ul>
-      </div>
+<footer class="w3-container w3-padding-32 ora-dark ora-font-white">
+  <div class="w3-row-padding">
+    <div class="w3-twothird">
+      <h2 class="w3-text-teal">Web technologies and e-Services</h2>
+      <p>Hanoi University of Science and Technology</p>
+      <p>Nguyen Hung Cuong - 20215264</p>
     </div>
-  </footer>
+  
+    <div class="w3-third">
+      <h3 class="w3-text-teal">MENU</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+          <a href="Logo.html" class="w3-large" style="text-decoration: none;">Home</a>
+          <!-- <span class="w3-large">Home</span><br> -->
+          <!-- <span>Sed mattis nunc</span> -->
+        </li>
+        <li class="w3-padding-16">
+          <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+          <!-- <span class="w3-large">About me</span><br> -->
+          <!-- <span>Praes tinci sed</span> -->
+        </li> 
+      </ul>
+    </div>
+  </div>
+</footer>
 
 <!-- END MAIN -->
 </div>
