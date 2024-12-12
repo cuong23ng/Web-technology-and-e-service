@@ -1,148 +1,201 @@
+/**
+ * Hàm để mở modal cho việc thêm hoặc sửa menu
+ * @param {string} mode - 'add' hoặc 'edit'
+ * @param {TopMenuItem} menu - Đối tượng TopMenuItem (cho mode 'edit')
+ * @param {number} index - Vị trí của menu trong mảng (cho mode 'add')
+ */
+function openModal(mode, menu = null, index = -1) {
+  const modal = document.getElementById('menuModal');
+  const form = document.getElementById('menuForm');
+  const modalTitle = document.getElementById('modalTitle');
+  const submitButton = document.getElementById('modalSubmitButton');
 
-// Add menu item
-function addMenuItem(itemId) {
-  // ADD NEW ITEM IN ADMIN PAGE MENU
-  const newItemId = ++menu.itemCount; // Add items counter by 1 and get current id
-  const item = document.getElementById(`item-${itemId}`) // Get item element just before new item Element
-
-  // Add item attributes and oparations
-  let newItem = document.createElement('div')
-  newItem.innerHTML = `
-    <div class="item-menu-name">New Item</div>
-    <div class="item-buttons">
-      <img src="assets/eye.png" alt="eye-icon" onclick="viewMenuLeft(${newItemId})"/>
-      <img src="assets/edit.png" alt="edit-icon" onclick="renameMenuItem(${newItemId})"/>
-      <img src="assets/close.png" alt="close-icon" onclick="deleteMenuItem(${newItemId})"/>
-      <img src="assets/add.png" alt="add-icon" onclick="addMenuItem(${newItemId})"/>
-    </div>`
-  newItem.classList.add('item-menu')
-  newItem.setAttribute('id', `item-${newItemId}`)
-  item.nextElementSibling.insertAdjacentElement("afterend", newItem)
-
-  // ADD A NEW LINE AFTER NEW ITEM
-  let newLine = document.createElement("hr")
-  newItem.insertAdjacentElement("afterend", newLine)
-
-  // ADD NEW DATA TO OBJECT "menu"
-  menu[`item_${newItemId}`] = {
-    name: "New Item",
-    itemCount: 0,
-    sidebar: ''
+  if (mode === 'add') {
+    modalTitle.textContent = "Thêm Top Menu";
+    submitButton.textContent = "Thêm";
+    document.getElementById('menuName').value = "";
+    document.getElementById('menuEditable').value = "true";
+  } else if (mode === 'edit') {
+    modalTitle.textContent = "Sửa Top Menu";
+    submitButton.textContent = "Lưu";
+    document.getElementById('menuName').value = menu.name;
+    document.getElementById('menuEditable').value = menu.editable? "true" : "false";
   }
 
-  // ADD NEW ITEM IN NAVIGATION BAR
-  // Get Item just before new nav item
-  const navItem = document.getElementById(`nav-${itemId}`)
-  let newNavItem = document.createElement('a')
-  newNavItem.setAttribute('id', `nav-${newItemId}`)
-  newNavItem.setAttribute("href", "javascript:void(0)")
-  newNavItem.setAttribute("onclick", `showContent('site-${newItemId}')`)
-  newNavItem.setAttribute("class", "w3-bar-item w3-button")
-  newNavItem.innerText = "New Item"
-  navItem.insertAdjacentElement("afterend", newNavItem)
+  modal.style.display = "block";
 
-  // CREATE NEW SITE
-  const prevSite = document.getElementById(`site-${itemId}`)
-  const newSite = document.createElement('div')
-  newSite.setAttribute("id", `site-${newItemId}`)
-  newSite.classList = "w3-container w3-padding-64 hidden"
-  newSite.innerHTML = `<div class="container"></div>`
-  prevSite.insertAdjacentElement("afterend", newSite)
+  // Xử lý submit form
+  form.onsubmit = function (event) {
+    event.preventDefault();
+    const name = document.getElementById('menuName').value.trim();
+    const editable = document.getElementById('menuEditable').value === "true";
 
-  // SET TITLE IN SIDEBAR
-  menu[`item_${newItemId}`].sidebar += `<h4 id="sbar-${newItemId}-0" class="w3-bar-item"></h4>`
-}
-
-// Delete menu item
-function deleteMenuItem(itemId) {
-  // Delete in the Admin page menu
-  const item = document.getElementById(`item-${itemId}`)
-  item.nextElementSibling.remove()
-  item.remove()
-
-  // Delete in the navigation bar
-  const navItem = document.getElementById(`nav-${itemId}`)
-  navItem.remove()
-
-  // Delete data in Object "menu"
-  delete menu[`item_${itemId}`]
-}
-
-// Rename menu item
-function renameMenuItem(itemId) {
-  const item = document.getElementById(`item-${itemId}`) // Get item in the Admin page menu
-  const navItem = document.getElementById(`nav-${itemId}`) // Get item in the nav bar
-  const itemName = item.firstElementChild
-  itemName.innerHTML = `<input type="text" id="input-${item.id}" value="${itemName.innerText}" autofocus autocomplete="off">`
-
-  // Change to new name if press enter
-  itemName.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      const newName = document.getElementById(`input-${item.id}`).value
-      itemName.innerText = newName // Change name in the Admin page menu
-      navItem.innerText = newName // Change name in the nav bar
-      menu[`item_${itemId}`].name = newName // Change name data in Object "menu"
+  if (mode === "add") {
+    // Tạo một TopMenuItem mới
+    let menuId = generateId('top-menu');
+    console.log(getLinkFromId(menuId));
+    const newMenu = new TopMenuItem(menuId, name, getLinkFromId(menuId), '', editable);
+    appData.addTopMenu(newMenu, index);
+  } else if (mode === "edit") {
+    // Tìm và cập nhật TopMenuItem
+    const menuToEdit = appData.getTopMenuById(menu.id);
+    if (menuToEdit) {
+      menuToEdit.name = name;
+      menuToEdit.editable = editable;
     }
-  })
+  }
+  
+  // Lưu dữ liệu và render lại bảng
+  saveAppData();
+  renderAdminMenuTable();
 
-  // Change to new name if click outside the input box
-  itemName.addEventListener("change", () => {
-    const newName = document.getElementById(`input-${item.id}`).value
-    itemName.innerText = newName // Change name in the Admin page menu
-    navItem.innerText = newName // Change name in the nav bar
-    menu[`item_${itemId}`].name = newName // Change name data in Object "menu"
-  })
+  // Render lại top menu trên trang chính
+  renderTopMenu();
+
+  // Đóng modal
+  modal.style.display = "none";
+  };
 }
 
-// Admin contents layout
-function viewMenuLeft(itemId) {
-  const idString = `item_${itemId}` // Id in object "menu"
-  // Get sidebar content
-  const sidebar = document.getElementById("mySidebar")
-  sidebar.innerHTML = ''
-  sidebar.innerHTML = menu[idString].sidebar
-  sidebar.firstElementChild.innerHTML = `<b>${menu[idString].name}</b>`
+/**
+ * Hàm đóng modal
+ */
+function closeModal() {
+  const modal = document.getElementById('menuModal');
+  modal.style.display = "none";
+  const confirmMenuDeleteModal = document.getElementById('confirmMenuDeleteModal');
+  confirmMenuDeleteModal.style.display = "none"; 
+}
 
-  // Change edit table
-  const menuTable = document.getElementById("admin-page").firstElementChild
-  menuTable.innerHTML = ''
+/**
+ * Hàm để xóa một TopMenuItem
+ * @param {string} menuId - ID của menu cần xóa
+ */
+function deleteTopMenu(menuId) {
+  appData.deleteTopMenu(menuId);
+  saveAppData();
+  renderAdminMenuTable();
+  renderTopMenu();
+}
 
-  const editTable = document.createElement('div')
-  editTable.classList = "menu"
+/**
+ * Hàm để render bảng danh sách Top Menus trên Admin Page
+ */
+function renderAdminMenuTable() {
+  const tableBody = document.getElementById('admin-menu-table-body');
+  tableBody.innerHTML = "";
 
-  const title = document.createElement('div')
-  const titleId = `item-${itemId}-0`
-  title.setAttribute('id', titleId)
-  title.setAttribute('class', "item-menu")
-  title.innerHTML = `
-    <div class="item-menu-name"><h3>Admin menu left: "${menu[idString].name}"</h3></div>
-    <div class="item-buttons" style="justify-content: end">
-      <img src="assets/add.png" alt="add-icon" onclick="addSectionItem(${itemId}, 0)"/>
-    </div>
-  `
-  editTable.appendChild(title)
-  const nothing = document.createElement("hr") // Create 1 sibling to be similar to each item which has one hr element below
-  nothing.setAttribute("style", "width: 0")
-  editTable.appendChild(nothing)
+  // Thêm hàng đầu tiên với các ô trống và nút Thêm
+  const trAddNew = document.createElement('tr');
 
-  const sectionList = sidebar.getElementsByTagName("a")
-  for (let key = 0; key < sectionList.length; key++) {
-    const editSection = document.createElement('div')
-    const sectionId = `item-${itemId}-${key + 1}` // item_{sectionid}_{id} (id_1_1)
-    editSection.setAttribute('id', sectionId) 
-    editSection.setAttribute('class', "item-menu")
-    editSection.innerHTML = `
-      <div class="item-menu-name">${sectionList[key].innerText}</div>
-      <div class="item-buttons">
-        <img src="assets/eye.png" alt="eye-icon" onclick="editContentLayout(${itemId}, ${key + 1})"/>
-        <img src="assets/edit.png" alt="edit-icon" onclick="renameSectionItem(${itemId}, ${key + 1})"/>
-        <img src="assets/close.png" alt="close-icon" onclick="deleteSectionItem(${itemId}, ${key + 1})"/>
-        <img src="assets/add.png" alt="add-icon" onclick="addSectionItem(${itemId}, ${key + 1})"/>
-      </div>`
-    editTable.appendChild(editSection)
+  // Name
+  const tdNameAddNew = document.createElement('td');
+  tdNameAddNew.textContent = "...";
+  trAddNew.appendChild(tdNameAddNew);
 
-    const newLine = document.createElement('hr')
-    editTable.appendChild(newLine)
-  }
-  menuTable.appendChild(editTable)
+  // Editable
+  const tdEditableAddNew = document.createElement('td');
+  tdEditableAddNew.textContent = "...";
+  trAddNew.appendChild(tdEditableAddNew);
+
+  // Actions
+  const tdActionsAddNew = document.createElement('td');
+
+  // Add Button
+  const addBtnNew = document.createElement('button');
+  addBtnNew.className = "w3-button w3-hover-white w3-green w3-margin-right";
+  addBtnNew.innerHTML = '<i class="fa fa-plus"></i>';
+  addBtnNew.title = "Thêm";
+  addBtnNew.onclick = () => {
+    openModal('add', null, 0);
+  };
+  tdActionsAddNew.appendChild(addBtnNew);
+
+  trAddNew.appendChild(tdActionsAddNew);
+  tableBody.appendChild(trAddNew);
+
+  appData.topMenus.forEach((menu, index) => {
+    // Thêm hàng đầu tiên với các ô trống và nút Thêm
+    const tr = document.createElement('tr');
+
+    // Name
+    const tdName = document.createElement('td');
+    tdName.textContent = menu.name;
+    tr.appendChild(tdName);
+
+    // Editable
+    const tdEditable = document.createElement('td');
+    tdEditable.textContent = menu.editable ? "Yes" : "No";
+    tr.appendChild(tdEditable);
+
+    // Actions
+    const tdActions = document.createElement('td');
+
+    // View Button
+    const viewBtn = document.createElement('button');
+    viewBtn.className = "w3-button w3-hover-white w3-blue w3-margin-right";
+    viewBtn.innerHTML = '<i class="fa fa-eye"></i>';
+    viewBtn.title = "Xem";
+    viewBtn.onclick = () => {
+      window.location.href = `admin_menu_left.html?top-menu=${menu.id}`;
+    };
+    tdActions.appendChild(viewBtn);
+
+    // Add Button
+    const addBtn = document.createElement('button');
+    addBtn.className = "w3-button w3-hover-white w3-green w3-margin-right";
+    addBtn.innerHTML = '<i class="fa fa-plus"></i>';
+    addBtn.title = "Thêm";
+    addBtn.onclick = () => {
+      openModal('add', menu, index + 1);
+    };
+    tdActions.appendChild(addBtn);
+
+    // Edit Button
+    if (menu.editable) {
+      const editBtn = document.createElement('button');
+      editBtn.className = "w3-button w3-hover-white w3-yellow w3-margin-right";
+      editBtn.innerHTML = '<i class="fa fa-edit"></i>';
+      editBtn.title = "Sửa";
+      editBtn.onclick = () => {
+        openModal('edit', menu);
+      };
+      tdActions.appendChild(editBtn);
+    } else {
+      // Nếu không editable, hiển thị icon không hoạt động
+      const editBtnDisabled = document.createElement('button');
+      editBtnDisabled.className = "w3-button w3-disabled w3-margin-right";
+      editBtnDisabled.innerHTML = '<i class="fa fa-edit"></i>';
+      editBtnDisabled.title = "Không thể sửa";
+      tdActions.appendChild(editBtnDisabled);
+    }
+
+    // Delete Button
+    if (menu.editable) {
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = "w3-button w3-hover-white w3-red";
+      deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
+      deleteBtn.title = "Xoá";
+      deleteBtn.onclick = () => {
+        const confirmMenuDeleteModal = document.getElementById('confirmMenuDeleteModal');
+        confirmMenuDeleteModal.style.display = "block";
+        const deleteButton = document.getElementById('deleteButton');
+        deleteButton.onclick = () => {
+          deleteTopMenu(menu.id);
+          closeModal();
+        };
+      };
+      tdActions.appendChild(deleteBtn);
+    } else {
+      // Nếu không editable, hiển thị icon không hoạt động
+      const deleteBtnDisabled = document.createElement('button');
+      deleteBtnDisabled.className = "w3-button w3-disabled";
+      deleteBtnDisabled.innerHTML = '<i class="fa fa-trash"></i>';
+      deleteBtnDisabled.title = "Không thể xoá";
+      tdActions.appendChild(deleteBtnDisabled);
+    }
+
+    tr.appendChild(tdActions);
+    tableBody.appendChild(tr);
+  });
 }
