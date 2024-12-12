@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Admin Page</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-black.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/admin-page.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div id="top-menu" class="w3-bar ora-dark ora-font-white w3-top w3-left-align w3-large w3-horizontal-scroll"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    <div id="sidebar-title"></div>
+    <div id="sidebar-content"></div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="overlay"></div>
+
+  <!-- Main content -->
+  <div class="w3-main" style="margin-left:250px; margin-top: 3rem;">
+    <div class="w3-container">
+      <div id="content-container">
+        <h1 class="w3-text-theme">Admin Page</h1>
+        <h3 class="w3-animate-top">Quản lý menu top</h3>
+
+        <table class="w3-table w3-bordered w3-hoverable w3-text-theme w3-animate-top">
+          <thead>
+            <tr class="w3-light-gray">
+              <th>Tên menu top</th>
+              <th>Editable</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-menu-table-body">
+            <!-- Nội dung bảng sẽ được render bởi JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding/Editing menu top -->
+  <div id="menuModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:500px">
+      <header class="w3-container w3-light-gray">
+        <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
+        <h2 id="modalTitle">Thêm menu top</h2>
+      </header>
+      <div class="w3-container">
+        <form id="menuForm">
+          <input type="hidden" id="menuId">
+          <p>
+            <label>Tên menu top</label>
+            <input class="w3-input w3-border" type="text" id="menuName" required>
+          </p>
+          <p>
+            <label>Editable</label>
+            <select class="w3-select w3-border" id="menuEditable">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </p>
+          <p>
+            <button class="w3-button w3-green" type="submit" id="modalSubmitButton">Lưu</button>
+          </p>
+        </form>
+      </div>
+      <!-- <footer class="w3-container w3-blue-gray">
+        <p>Admin Panel</p>
+      </footer> -->
+    </div>
+  </div>
+
+  <!-- Modal for Deleting menu top Confirmation -->
+  <div id="confirmMenuDeleteModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:500px">
+      <header class="w3-container w3-light-gray">
+        <span onclick="closeModal()" class="w3-button w3-display-topright">&times;</span>
+        <h2>Xác nhận xóa</h2>
+      </header>
+      <div class="w3-container">
+        <p>Bạn có chắc chắn muốn xóa menu top này?</p>
+      </div>
+      <footer class="w3-container w3-theme-d1">
+        <p>
+          <button class="w3-button w3-red"
+            id="deleteButton">Xóa</button>
+          <button class="w3-button w3-light-gray"
+            onclick="closeModal()">Hủy</button>
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <footer id="myFooter" class="w3-container w3-padding-32 ora-dark ora-font-white">
+    <div class="w3-row-padding w3-left-align">
+      <div class="w3-twothird">
+        <h2 class="w3-text-blue-gray">Web technologies and e-Services</h2>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3 class="w3-text-blue-gray">MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="index.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- END MAIN -->
+  <script src="./js/classes.js"></script>
+  <script src="./js/data-process.js"></script>
+  <script src="./js/load-site.js"></script>
+  <script src="./js/admin-contents-layout.js"></script>
+  <script src="./js/admin-menu-left.js"></script>
+  <script src="./js/admin-page.js"></script>
+  <script src="./js/scripts.js"></script>
+
+  <div id="highlighter--hover-tools" style="display: none;">
+    <div id="highlighter--hover-tools--container">
+      <div class="highlighter--icon highlighter--icon-copy" title="Copy"></div>
+      <div class="highlighter--icon highlighter--icon-change-color" title="Change Color"></div>
+      <div class="highlighter--icon highlighter--icon-delete" title="Delete"></div>
+    </div>
+  </div>
+</body>
+</html>
