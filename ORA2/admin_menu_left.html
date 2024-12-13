@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Admin Page</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -44,7 +45,12 @@
     <div class="w3-container">
       <div class="content-container">
         <h1 class="w3-text-theme w3-animate-top">Admin Menu Left</h1>
-        <h4 id="sidebar-item-name"></h4>
+        <h4 id="sidebar-item-name" style="display: inline;"></h4>
+
+        <button id="reset-button" class="w3-button w3-circle w3-theme-d1 hidden" style="margin-bottom: 16px;">
+          <i class="fa fa-refresh"></i>
+        </button>
+
         <table class="w3-table w3-bordered w3-hoverable">
           <thead>
             <tr class="w3-light-gray">

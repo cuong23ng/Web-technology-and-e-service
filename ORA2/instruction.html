@@ -1,36 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    p ul {
-      font-size: 30px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Hướng dẫn</title>
+    <link rel="icon" type="image/x-icon" href="assets/instruction.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/color.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <style>
+        /* Preview Layout */
+        #previewLayout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr); /* 12 cột */
+            grid-auto-rows: 200px; /* Chiều cao mặc định cho mỗi hàng */
+            gap: 10px;
+            border: 2px solid #ccc;
+            padding: 10px;
+        }
+
+        .preview-box {
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            font-weight: bold;
+            /* Đảm bảo box không bị tràn ra ngoài */
+            overflow: hidden;
+        }
+
+        .preview-box:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Help Icon */
+        .help-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 <body>
-  <h1>Làm thế nào để chỉnh sửa layout và thêm thông tin vào một section?</h1>
-<br>
-<p>Trang web sử dụng Bootstrap Grid System để tạo layout. Mình xin mô tả một cách ngắn gọn cách nó hoạt động</p>
-<br>
-<ul>
-  <li>Khi bạn bấm vào Content Layout View của một Section, trang chỉnh sửa Layout được hiện ra cùng với một khung hình 12x12 để mô tả layout trực quan sẽ trông như thế nào</li>
-  <li>Theo như cách thiết kế của Bootstrap Grid System, một cửa sổ được chia làm 12 theo chiều ngang, điều này có nghĩa khi bạn muốn sắp xếp các layer trên một dòng thì tổng chiều dài của các element phải bằng hoặc bé hơn 12, nếu lớn hơn thì sẽ gặp lỗi khi áp dụng Responsive</li>
-  <li>Chiều dài ở đây được tính theo đơn vị riêng của Bootstrap tương ứng với các class tương ứng với các độ dài. Vd: Nếu muốn tạo 2 element trên một dòng thì có thể gán mỗi element đó class="col-sm-6" tương ứng với chiều dài bằng 6 đơn vị, hoặc gán một element là class="col-sm-4", cái còn lại là class="col-sm-8", thì sẽ có hai element lần lượt tương ứng chiều dài 4 và 8 đơn vị</li>
-  <img src="./assets/ex1.png">
-  <li>Để khai báo một dòng dùng class="row", có thể dùng khai báo này bên trong element thành phần của một "row" khác, điều này tiện lợi cho responsive</li>
-  <li>Lưu ý, nên đặt tên id cho mỗi element là duy nhất và dễ nhớ, điều này rất quan trọng, vì nó dùng để xác định element khi thêm nội dung hoàn chỉnh ở bước sau</li>
-  <li>Xem thêm tại: <a href="https://www.w3schools.com/bootstrap/bootstrap_grid_system.asp">https://www.w3schools.com/bootstrap/bootstrap_grid_system.asp</a></li>
-</ul>
+  <div class="w3-container w3-padding-32">
+    <h1>Hướng dẫn thiết lập các thông số (Content type và Layout) cho các mục Content</h1>
+    <p>Khi bạn tạo mới hoặc mở một mục Content Item có sẵn, ngoài tên của Content Item ra bảng còn hiển thị Type của content đó và các thông số Layout. Sau đây mình xin giải thích rõ hơn ý nghĩa của các trường này.</p>
+    <h2>Content type:</h2>
+    <p>Trường Content Type xác định kiểu của content item đó sẽ hiển thị. Bao gồm ba kiểu:</p>
+    <ul class="w3-ul w3-bordered w3-hoverable">
+      <li><strong>Text:</strong> Content được thêm và chỉnh sửa như văn bản / document bình thường, gồm các tùy chọn như chèn bảng, chèn ảnh, highlight, nhấn mạnh,... VD: Trang <a href="index.html?page=top-menu-25" target="_blank">Thông tin môn học</a></li>
 
-<h1>Để thêm nội dung cho các element trong layout vừa tạo</h1>
-<ul>
-  <li>Dùng id kèm với tag mở và tag đóng giống như quy tắc html để xác định element. Bạn chỉ cần điền nội dung vào giữa hai tag, để thêm style, hoặc thêm ảnh, có thể chọn trên thanh tùy chọn của QuillJS</li>
-  <li>Lưu ý để hai tag mở và tag đóng ở riêng một dòng, tức không có bất cứ gì khác trên hai dòng để hai tag đó, nếu không chương trình sẽ hoạt động lỗi</li>
-  <li>Lưu ý: Không nên dùng cái này để chỉnh sửa các mục có sử dụng table vì quillJS không hỗ trợ table, nếu gắng dùng sẽ sinh lỗi!!!</li>
-  <img src="./assets/ex2.png">
-</ul>
+      <li><strong>Wikipedia search:</strong> Dùng để liệt kê các trang định nghĩa, thông tin, khái niệm từ Wikipedia, bằng công cụ Wikipedia search, content type này thích hợp để dùng cho reference.</search> VD: Trang <a href="index.html?page=top-menu-41" target="_blank">Tham khảo Wikipedia</a></li>
+
+      <li><strong>Wikipedia page:</strong> Dùng để lấy dữ liệu văn bản từ một trang Wikipedia và hiển thị lên một Menu Top Item. VD: Trang <a href="index.html?page=top-menu-38" target="_blank">Semantic web</a></li>
+    </ul>
+    <h2>Layout:</h2>
+    <p>Các mục contents sẽ được bố trí theo lưới grid 12, tức là mỗi hàng sẽ được chia thành 12 phần bằng nhau. </p>
+    <p>Dưới đây là các thông số bạn có thể thiết lập để định vị và bố trí các mục contents trên trang:</p>
+    
+    <ul class="w3-ul w3-bordered w3-hoverable">
+      <li><strong>Grid Row:</strong> Vị trí hàng trên lưới grid nơi content sẽ bắt đầu. Giá trị phải là số nguyên dương (1, 2, 3, ...), tối đa là 12.</li>
+      <li><strong>Grid Column:</strong> Vị trí cột trên lưới grid nơi content sẽ bắt đầu. Giá trị phải là số nguyên dương (1, 2, 3, ...), tối đa là 12.</li>
+      <li><strong>Row Span:</strong> Số hàng mà content sẽ chiếm. Giá trị phải là số nguyên dương (1, 2, 3, ...), tối đa là 12.</li>
+      <li><strong>Column Span:</strong> Số cột mà content sẽ chiếm. Giá trị phải là số nguyên dương (1, 2, 3, ...), tối đa là 12.</li>
+    </ul>
+    <p><strong>Lưu Ý:</strong>Hãy đảm bảo bố cục của các mục content không được chồng lên nhau.</p>
+    <h3>Ví Dụ:</h3>
+    <p>Giả sử bạn có 4 mục content và muốn bố trí chúng như sau:</p>
+    <ol>
+      <li><strong>Content 1:</strong> Row: 1, Column: 1, Row Span: 2, Column Span: 3</li>
+      <li><strong>Content 2:</strong> Row: 1, Column: 4, Row Span: 1, Column Span: 9</li>
+      <li><strong>Content 3:</strong> Row: 2, Column: 4, Row Span: 1, Column Span: 9</li>
+      <li><strong>Content 4:</strong> Row: 3, Column: 1, Row Span: 1, Column Span: 12</li>
+    </ol>
+    <p>Nghĩa là: Content 1 sẽ chiếm 2 hàng và 3 cột từ vị trí hàng 1, cột 1; Content 2 và Content 3 sẽ chiếm 1 hàng và 9 cột từ vị trí hàng 1, cột 4 và hàng 2, cột 4; Content 4 sẽ chiếm 1 hàng và 12 cột từ vị trí hàng 3, cột 1.</p>
+    <p>Khi đó, layout sẽ được bố trí như sau.</p>
+    <div id="previewLayout">
+      <div class="w3-col preview-box" style="grid-area: 1 / 1 / span 2 / span 3;">Content 1</div>
+      <div class="w3-col preview-box" style="grid-area: 1 / 4 / span 1 / span 9;">Content 2</div>
+      <div class="w3-col preview-box" style="grid-area: 2 / 4 / span 1 / span 9;">Content 3</div>
+      <div class="w3-col preview-box" style="grid-area: 3 / 1 / span 1 / span 12;">Content 4</div>
+    </div>
+    <h3>Mẹo:</h3>
+    <ul class="w3-ul">
+      <li>Sử dụng các giá trị nhỏ cho Row và Column để tối ưu hóa không gian hiển thị.</li>
+      <li>Kết hợp Row Span và Column Span để tạo ra các vùng lớn hơn hoặc nhỏ hơn cho các mục content.</li>
+      <li>Kiểm tra preview layout sau mỗi lần thay đổi để đảm bảo bố trí như mong muốn.</li>
+    </ul>
+  </div>
 </body>
 </html>
