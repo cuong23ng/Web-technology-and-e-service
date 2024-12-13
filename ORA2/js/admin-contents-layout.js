@@ -15,6 +15,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
     modalTitle.textContent = "Add Content Layout";
     submitButton.textContent = "Add";
     document.getElementById('contentName').value = "";
+    document.getElementById('contentType').value = "text";
     document.getElementById('layoutRow').value = 1;
     document.getElementById('layoutColumn').value = 1;
     document.getElementById('layoutRowSpan').value = 1;
@@ -23,6 +24,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
     modalTitle.textContent = "Edit Content Layout";
     submitButton.textContent = "Save";
     document.getElementById('contentName').value = content.name;
+    document.getElementById('contentType').value = (content.contentType === "text") ? "text" : "wikiSearch";
     document.getElementById('layoutRow').value = content.position.row;
     document.getElementById('layoutColumn').value = content.position.column;
     document.getElementById('layoutRowSpan').value = content.rowSpan;
@@ -49,6 +51,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
   form.onsubmit = function (event) {
     event.preventDefault();
     const name = document.getElementById('contentName').value.trim();
+    const contentType = document.getElementById('contentType').value.trim();
     const layoutRow = parseInt(document.getElementById('layoutRow').value);
     const layoutColumn = parseInt(document.getElementById('layoutColumn').value);
     const layoutRowSpan = parseInt(document.getElementById('layoutRowSpan').value);
@@ -66,7 +69,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
       return;
     }
 
-    const newContent = new ContentItem(generateId('content'), name, layoutRowSpan, layoutColumnSpan, { row: layoutRow, column: layoutColumn });
+    const newContent = new ContentItem(generateId('content'), name, layoutRowSpan, layoutColumnSpan, { row: layoutRow, column: layoutColumn }, contentType);
 
     if (isOverlapping(newContent, sidebar.contents)) {
       alert("Bố cục của Content này đang chồng lấn với một Content khác, vui lòng chọn lại.");
@@ -83,6 +86,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
       const contentToEdit = content;
       if (contentToEdit) {
         contentToEdit.name = name;
+        contentToEdit.contentType = (contentType === "text") ? "text" : "wikiSearch";
         contentToEdit.position = { row: layoutRow, column: layoutColumn };
         contentToEdit.rowSpan = layoutRowSpan;
         contentToEdit.columnSpan = layoutColumnSpan;
@@ -104,6 +108,50 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
 */
 function closeContentModal() {
   const modal = document.getElementById('contentModal');
+  modal.style.display = "none";
+}
+
+/**
+* Hàm mở modal xác nhận xoá Content Item
+* @param {string} contentId - ID của ContentItem cần xoá
+*/
+function openConfirmContentDeleteModal(contentId) {
+  const modal = document.getElementById('confirmContentDeleteModal');
+  modal.style.display = "block";
+
+  const deleteButton = document.getElementById('confirmDeleteContentButton');
+  deleteButton.onclick = () => {
+    deleteContentItem(contentId);
+    closeConfirmContentDeleteModal();
+  };
+}
+
+/**
+* Hàm để xóa một ContentItem
+* @param {string} contentId - ID của ContentItem cần xoá
+*/
+function deleteContentItem(contentId) {
+  // Tìm Sidebar chứa ContentItem này
+  appData.topMenus.forEach(topMenu => {
+    topMenu.sidebars.forEach(sidebar => {
+      const content = sidebar.getContentById(contentId);
+      if (content) {
+        sidebar.deleteContent(contentId);
+      }
+    });
+  });
+
+  // Lưu dữ liệu và render lại bảng và preview
+  saveAppData();
+  renderAdminContentsTable();
+  renderPreviewLayout();
+}
+
+/**
+* Hàm đóng modal xác nhận xoá Content Item
+*/
+function closeConfirmContentDeleteModal() {
+  const modal = document.getElementById('confirmContentDeleteModal');
   modal.style.display = "none";
 }
 
@@ -186,6 +234,11 @@ function renderAdminContentsTable() {
   tdNameAddNew.textContent = '...';
   trAddNew.appendChild(tdNameAddNew);
 
+  // Content type
+  const tdContentTypeAddNew = document.createElement('td');
+  tdContentTypeAddNew.textContent = '...';
+  trAddNew.appendChild(tdContentTypeAddNew);
+
   // Layout Parameters
   const tdLayoutAddNew = document.createElement('td');
   tdLayoutAddNew.textContent = '...';
@@ -214,6 +267,11 @@ function renderAdminContentsTable() {
     const tdName = document.createElement('td');
     tdName.textContent = content.name;
     tr.appendChild(tdName);
+
+    // Content type
+    const tdContentType = document.createElement('td');
+    tdContentType.textContent = (content.contentType === "text") ? "Text docs" : "Wikipedia search";
+    tr.appendChild(tdContentType);
 
     // Layout Parameters
     const tdLayout = document.createElement('td');

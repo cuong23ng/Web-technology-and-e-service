@@ -88,6 +88,7 @@
       <thead>
         <tr class="w3-light-gray">
           <th>Tên Content</th>
+          <th>Content type</th>
           <th>Thông Số Layout</th>
           <th>Actions</th>
         </tr>
@@ -118,7 +119,13 @@
             <label>Tên Content</label>
             <input class="w3-input w3-border" type="text" id="contentName" required>
           </p>
-
+          <p>
+            <label>Content type</label>
+            <select id="contentType" class="w3-input w3-border">
+              <option value="text">Text docs</option>
+              <option value="wikiSearch">Wikipedia search</option>
+            </select>
+          </p>
           <hr>
 
           <h4>Thông Số Layout</h4>
@@ -156,21 +163,18 @@
   <!-- Confirmation Modal for Deleting Content Layout -->
   <div id="confirmContentDeleteModal" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:500px">
-      <header class="w3-container w3-theme-d1">
+      <header class="w3-container w3-light-blue">
         <span onclick="closeConfirmContentDeleteModal()" class="w3-button w3-display-topright">&times;</span>
         <h2>Xác Nhận Xóa</h2>
       </header>
 
       <div class="w3-container">
         <p>Bạn có chắc chắn muốn xóa Content này?</p>
-      </div>
-
-      <footer class="w3-container w3-theme-d1">
         <p>
-          <button class="w3-button w3-theme-l1" id="confirmDeleteContentButton">Xóa</button>
-          <button class="w3-button w3-theme-d1" onclick="closeConfirmContentDeleteModal()">Hủy</button>
+          <button class="w3-button w3-red" id="confirmDeleteContentButton">Xóa</button>
+          <button class="w3-button w3-light-gray" onclick="closeConfirmContentDeleteModal()">Hủy</button>
         </p>
-      </footer>
+      </div>
     </div>
   </div>
 
