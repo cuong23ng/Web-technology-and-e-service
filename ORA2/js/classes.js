@@ -1,10 +1,11 @@
 class ContentItem {
-  constructor(id, name, rowSpan = 1, columnSpan = 1, position = { row: 1, column: 1}, htmlContent = "") {
+  constructor(id, name, rowSpan = 1, columnSpan = 1, position = { row: 1, column: 1}, contentType = "text", htmlContent = "") {
     this.id = id;
     this.name = name;
     this.rowSpan = rowSpan;
     this.columnSpan = columnSpan;
     this.position = position;
+    this.contentType = contentType;
     this.htmlContent = htmlContent;
   }
 

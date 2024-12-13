@@ -36,7 +36,7 @@ function initializeDefaultData() {
   const content1_1_1 = new ContentItem(
     generateId('content'),
     'Thông tin khai giảng',
-    1, 12, { row: 1, column: 1 },
+    1, 12, { row: 1, column: 1 }, 'text',
     `
     <table class="w3-table w3-striped w3-bordered">
       <tr>
@@ -67,7 +67,7 @@ function initializeDefaultData() {
   const content1_2_1 = new ContentItem(
     generateId('content'),
     'Thông tin Seminar',
-    1, 12, { row: 1, column: 1 },
+    1, 12, { row: 1, column: 1 }, 'text',
     `
     <table class="w3-table w3-striped w3-bordered">
       <tr>
@@ -107,7 +107,7 @@ function initializeDefaultData() {
   const content1_3_1 = new ContentItem(
     generateId('content'),
     'Thông tin',
-    1, 8, { row: 1, column: 1 },
+    1, 8, { row: 1, column: 1 }, 'text',
     `
     <ul>
       <li><strong>Công ty:</strong> FPT Software</li>
@@ -125,7 +125,7 @@ function initializeDefaultData() {
   const content1_3_2 = new ContentItem(
     generateId('content'),
     'Ảnh',
-    1, 4, { row: 1, column: 9 },
+    1, 4, { row: 1, column: 9 }, 'text',
     `
     <img src="http://itde.hvnh.edu.vn/public/img/news/files/FPT%20tuy%E1%BB%83n%20d%E1%BB%A5ng%20(2).jpg" class="w3-image w3-round">
     `
@@ -154,7 +154,7 @@ function initializeDefaultData() {
   const content2_1_1 = new ContentItem(
     generateId('content'),
     'Thông tin chung 1',
-    1, 6, { row: 1, column: 1 },
+    1, 6, { row: 1, column: 1 }, 'text',
     `
   <div class="w3-margin-bottom">
       <label>Đơn vị:</label>
@@ -196,7 +196,7 @@ function initializeDefaultData() {
   const content2_1_2 = new ContentItem(
     generateId('content'),
     'Thông tin chung 2',
-    1, 6, { row: 1, column: 7 },
+    1, 6, { row: 1, column: 7 }, 'text',
     `
   <div class="w3-margin-bottom">
       <label>Loại hình:</label>
@@ -238,7 +238,7 @@ function initializeDefaultData() {
   const content2_2_1 = new ContentItem(
     generateId('content'),
     'Mô tả',
-    1, 12, { row: 1, column: 1 },
+    1, 12, { row: 1, column: 1 }, 'text',
     `
   <p>Mục tiêu: Học phần cung cấp các kiến thức cần thiết để xây dựng và phát triển các ứng dụng, dịch
       vụ trực tuyến trên môi trường web. Sau khi học xong học phần này, sinh viên có khả năng:</p>
@@ -258,7 +258,7 @@ function initializeDefaultData() {
   const content2_3_1 = new ContentItem(
     generateId('content'),
     'Mô tả',
-    1, 12, { row: 1, column: 1 },
+    1, 12, { row: 1, column: 1 }, 'text',
     `
   <p>Mục tiêu: Học phần cung cấp các kiến thức cần thiết để xây dựng và phát triển các ứng dụng, dịch
       vụ
@@ -280,7 +280,7 @@ function initializeDefaultData() {
   const content2_4_1 = new ContentItem(
     generateId('content'),
     'Danh sách',
-    1, 12, { row: 1, column: 1 },
+    1, 12, { row: 1, column: 1 }, 'text',
     `
   <ul>
     <li>Web Technologies: A Computer Science Perspective by Jeffrey C. Jackson</li>
@@ -305,7 +305,7 @@ function initializeDefaultData() {
   const content3_1_1 = new ContentItem(
     generateId('content'),
     'Nội dung ASP.NET',
-    1, 8, { row: 1, column: 1 },
+    1, 8, { row: 1, column: 1 }, 'text',
     `
   <p><strong>ASP.NET</strong> là một framework phát triển ứng dụng web do Microsoft phát
       triển. Nó cung cấp một nền tảng mạnh mẽ để xây dựng các ứng dụng web, API, và dịch vụ
@@ -324,7 +324,7 @@ function initializeDefaultData() {
   const content3_1_2 = new ContentItem(
     generateId('content'),
     'Ảnh ASP.NET',
-    1, 4, { row: 1, column: 9 },
+    1, 4, { row: 1, column: 9 }, 'text',
     `
   <img src="assets/aspnet.png" alt="ASP.NET Logo" class="w3-image">
   `);
@@ -335,7 +335,7 @@ function initializeDefaultData() {
   const content3_2_1 = new ContentItem(
     generateId('content'),
     'Nội dung SpringBoot',
-    1, 8, { row: 1, column: 1 },
+    1, 8, { row: 1, column: 1 }, 'text',
     `
   <p><strong>SpringBoot</strong> là một framework mã nguồn mở dựa trên Java, được thiết kế để
       tạo các ứng dụng độc lập, sẵn sàng chạy và dễ dàng triển khai. SpringBoot cung cấp một
@@ -352,7 +352,7 @@ function initializeDefaultData() {
   const content3_2_2 = new ContentItem(
     generateId('content'),
     'Ảnh SpringBoot',
-    1, 4, { row: 1, column: 9 },
+    1, 4, { row: 1, column: 9 }, 'text',
     `
   <img src="assets/Spring.svg" alt="SpringBoot Logo" class="w3-image">
   `);
@@ -363,7 +363,7 @@ function initializeDefaultData() {
   const content3_3_1 = new ContentItem(
     generateId('content'),
     'Nội dung ReactJS',
-    1, 8, { row: 1, column: 1 },
+    1, 8, { row: 1, column: 1 }, 'text',
     `
   <p><strong>ReactJS</strong> là một thư viện JavaScript mã nguồn mở, được phát triển bởi Facebook
       để xây dựng giao diện người dùng trên các ứng dụng web đơn trang. ReactJS sử dụng cú pháp
@@ -379,7 +379,7 @@ function initializeDefaultData() {
   const content3_3_2 = new ContentItem(
     generateId('content'),
     'Ảnh ReactJS',
-    1, 4, { row: 1, column: 9 },
+    1, 4, { row: 1, column: 9 }, 'text',
     `
   <img src="assets/reactjs.png" alt="ReactJS Logo" class="w3-image">
   `);
@@ -416,6 +416,7 @@ function saveAppData() {
           rowSpan: content.rowSpan,
           columnSpan: content.columnSpan,
           position: content.position,
+          contentType: content.contentType,
           htmlContent: content.htmlContent
         }))
       }))     
@@ -444,6 +445,7 @@ function loadAppData() {
           content.rowSpan,
           content.columnSpan,
           content.position,
+          content.contentType,
           content.htmlContent
         ));
         return sb;

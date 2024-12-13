@@ -89,7 +89,17 @@
           <h3>Chỉnh sửa nội dung Content</h3>
           <h4 id="content-name"></h4>
           <div id="editor">
-            <!-- Trình soạn thảo tynyMCE sẽ được khởi tạo tại đây -->
+            <!-- Trình soạn thảo tynyMCE hoặc WikiSearch Tool sẽ được khởi tạo tại đây -->
+          </div>
+          <div id="wiki-search-tool" class="w3-container w3-border w3-padding-16 w3-center hidden">
+            <img src="./assets/wikipedia-logo.png" alt="wikipedia" style="width: 20svb;">
+            <h1>Wikipedia Search</h1>
+            <input type="text" name="searchTerm" id="search-term" class="w3-input w3-border" placeholder="Enter a search term...">
+            <hr>
+
+            <table id="search-result" class="w3-table w3-border w3-bordered">
+              <!-- Searching Result sẽ hiển thị tại đây -->
+            </table>
           </div>
           <button class="w3-button w3-blue-gray" id="saveContentButton" style="margin-top: 10px;">Lưu</button>
         </div>
