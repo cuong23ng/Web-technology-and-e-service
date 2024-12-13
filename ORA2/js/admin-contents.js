@@ -94,7 +94,8 @@ function loadContent() {
           'heading', '|',
           'bold', 'italic', 'underline',
           'link', 'bulletedList', 'numberedList',
-          'blockQuote', 'insertTable', 'mediaEmbed'
+          'blockQuote', 'insertTable', 'mediaEmbed',
+          'insertImage'
         ]
       },
       language: 'vi', // // Set language to Vietnamese if available
@@ -214,6 +215,125 @@ function loadContent() {
                   </a>
                   <div>${tmpResult[0].snippet}...</div>
                 </article>`).join('');
+              renderContentPreviewLayout();
+            });
+          });
+
+        } catch (error) {
+          console.error(error);
+        }
+      });
+
+      const stripHtml = (html) => {
+        let div = document.createElement('div');
+        div.innerHTML = html;
+        return div.textContent;
+      };
+
+      const highlight = (str, keyword, className = "w3-light-gray") => {
+        const hl = `<span class="${className}">${keyword}</span>`;
+        return str.replace(new RegExp(keyword, 'gi'), hl);
+      };  
+  } else if (selectedContent.contentType === "wikiPage") {
+      // Mở công cụ tìm kiếm Wikipedia
+      const searchTool = document.getElementById('wiki-search-tool');
+      searchTool.classList.remove('hidden');
+
+      const searchTermElem = document.querySelector('#search-term');
+      const searchResultElem = document.querySelector('#search-result');
+
+      // Reset dữ liệu
+      searchResultElem.innerHTML = "";
+
+      // Kiểm tra event nhập vào input
+      searchTermElem.addEventListener('input', function (event) {
+        search(event.target.value);
+      });
+
+      const debounce = (fn, delay = 500) => {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            fn.apply(null, args);
+          }, delay);
+        };
+      };
+
+      const search = debounce(async (searchTerm) => {
+        if (!searchTerm) {
+          // Reset the search result
+          searchResultElem.innerHTML = "";
+          return;
+        }
+
+        try {
+          // Make an API request
+          const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info|extracts&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchTerm}`;
+          const response = await fetch(url);
+          const searchResults = await response.json();
+          
+          // Tạo table header
+          searchResultElem.innerHTML = `<thead>
+                <th>Search result:</th>
+                <th>Choose</th>
+              </thead>`;
+
+          const searchResultBody = document.createElement('tbody');
+          const results = searchResults.query.search;
+          results.map(result => {
+            const title = highlight(stripHtml(result.title), searchTerm);
+            const snippet = highlight(stripHtml(result.snippet), searchTerm);
+
+            // Tạo hàng
+            const articleRow = document.createElement('tr'); 
+            articleRow.className = "w3-left-align";
+
+            // Tạo brief article
+            const articleWiki = document.createElement('td');
+
+            // Tạo tiêu đề
+            const titleWiki = document.createElement('a');
+            titleWiki.href = `https://en.wikipedia.org/?curid=${result.pageid}`;
+            titleWiki.target = "_blank";
+            titleWiki.innerHTML = `<h2>${title}</h2>`;
+            articleWiki.appendChild(titleWiki);
+
+            // Tạo snippet body
+            const snippetWiki = document.createElement('div');
+            snippetWiki.innerHTML = `${snippet}..`;
+            articleWiki.appendChild(snippetWiki);
+
+            // Tạo ô chọn
+            const chooseSec = document.createElement('td');
+            chooseSec.className = "w3-center";
+            chooseSec.innerHTML = `<input class="w3-check" type="radio" name="wikiArticle" value="${result.pageid}"/>`;
+
+            articleRow.appendChild(articleWiki);
+            articleRow.appendChild(chooseSec);
+
+            searchResultBody.appendChild(articleRow);
+          });
+
+          searchResultElem.appendChild(searchResultBody);
+
+          // Lấy article được tick
+          const wikiArticles = document.getElementsByName('wikiArticle');
+          wikiArticles.forEach( wikiArticle => {
+            wikiArticle.addEventListener('change', async function () {
+              const wikiCheckedArticle = document.querySelector('input[name="wikiArticle"]:checked');
+    
+              const wikiPageResult = results.filter(result => result.pageid.toString() === wikiCheckedArticle.value.toString())[0];
+              console.log(wikiPageResult.pageid);
+            
+              // Lấy Page Content
+              const url = `https://en.wikipedia.org/w/api.php?action=parse&format=json&pageid=${wikiPageResult.pageid}&prop=text&formatversion=2&origin=*`;
+              const response = await fetch(url);
+              const result = await response.json();
+              tmpHtmlContent = result.parse.text;
+              
               renderContentPreviewLayout();
             });
           });

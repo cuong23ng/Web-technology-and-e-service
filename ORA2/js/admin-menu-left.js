@@ -139,11 +139,24 @@ function renderAdminSidebarTable() {
 
   const sidebarName = document.getElementById('sidebar-item-name');
   sidebarName.textContent = topMenu.name;
-  // if (topMenu.name === 'Thông tin sinh viên') {
+  if (topMenu.name === 'Thông tin sinh viên') {
+    const resetButton = document.getElementById('reset-button');
+    resetButton.classList.remove('hidden');
 
-  // } else {
-    
-  // }
+    resetButton.addEventListener('click', () => {
+      const topMenu = appData.topMenus.find(menu => menu.name === 'Thông tin sinh viên');
+      if (topMenu) {
+        topMenu.sidebars = topMenu.sidebars.filter(sidebar =>
+          ['Information', 'Education', 'Projects', 'Extracurricular Activities'].includes(sidebar.name)
+        );
+        saveAppData();
+        renderAdminSidebarTable();
+      }
+    });
+  } else {
+    const resetButton = document.getElementById('reset-button');
+    resetButton.classList.add('hidden');
+  }
 
   renderSidebarForSelectedTopMenu(menuId);
 

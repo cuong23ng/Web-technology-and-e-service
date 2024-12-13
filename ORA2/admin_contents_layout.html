@@ -3,6 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Admin Page</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -80,7 +81,9 @@
         <h2 class="w3-text-theme">Admin Contents Layout</h2>
         <h4 id="content-name"></h4>
         <!-- Help Icon -->
-        <i class="fa fa-info-circle fa-2x help-icon w3-text-theme" title="Help"></i>
+        <a href="instruction.html" target="_blank">
+          <i class="fa fa-info-circle fa-2x help-icon w3-text-theme" title="Help"></i>
+        </a>
       </header>
 
       <!-- Bảng danh sách Contents Layout -->
@@ -124,6 +127,7 @@
             <select id="contentType" class="w3-input w3-border">
               <option value="text">Text docs</option>
               <option value="wikiSearch">Wikipedia search</option>
+              <option value="wikiPage">Wikipedia page</option>
             </select>
           </p>
           <hr>

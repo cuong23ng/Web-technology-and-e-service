@@ -1,0 +1,129 @@
+{
+  "id": "top-menu-46",
+  "name": "Thông tin sinh viên",
+  "link": "index.html?page=top-menu-46",
+  "icon": "",
+  "editable": false,
+  "sidebars": [
+    {
+      "id": "sidebar-45",
+      "name": "Information",
+      "contents": [
+        {
+          "id": "content-42",
+          "name": "Information",
+          "rowSpan": 1,
+          "columnSpan": 7,
+          "position": {
+            "row":1,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h3>Nguyễn Hùng Cường | <strong>Front-end Developer/Fresher</strong></h3>\n      <ul>\n        <li>Based in Hanoi, Vietnam</li>\n        <li>Contact: <a href=\"mailto:cuong.ng.23@gmail.com\">cuong.ng.23@gmail.com</a> | 0838356357</li>\n      </ul>\n      <h3>Skills</h3>\n      <ul>\n        <li>Programming Languages: C#, C++, Java, JavaScript, PHP</li>\n        <li>DB: MSSQL</li>\n        <li>Frameworks/Tools: ASP.NET core, VueJS</li>\n      </ul>"
+        },
+        {
+          "id": "content-43",
+          "name": "Objective",
+          "rowSpan": 1,
+          "columnSpan": 7,
+          "position": {
+            "row":2,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h2>Objective</h2>\n      <p>My name is Cuong, and I am a fourth-year IT student with a foundation in software development. I am passionate about technology and continuously seek to enhance my skills through academic projects, internships, and personal learning.</p>"
+        },
+        {
+          "id": "content-44",
+          "name": "Avatar",
+          "rowSpan": 2,
+          "columnSpan": 5,
+          "position": {
+            "row": 1,
+            "column": 8
+          },
+          "contentType": "text",
+          "htmlContent": "<img src=\"../assets/ava.jpg\" alt=\"avatar\" style=\"width: 100%\"/>"
+        }
+      ]
+    },
+    {
+      "id": "sidebar-48",
+      "name": "Education",
+      "contents": [
+        {
+          "id": "content-47",
+          "name": "education",
+          "rowSpan": 1,
+          "columnSpan": 12,
+          "position": {
+            "row": 1,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<p>2017 - 2020: <strong>Le Quy Don Gifted High School</strong></p>\n      <ul>\n        <li>Informatics major</li>\n      </ul>\n      <p>2021 - present: <strong>Hanoi University of Science and Technology</strong></p>\n      <ul>\n        <li>Information and Technology</li>\n      </ul>"
+        }
+      ]
+    },
+    {
+      "id": "sidebar-52",
+      "name": "Projects",
+      "contents": [
+        {
+          "id": "content-49",
+          "name": "1",
+          "rowSpan": 1,
+          "columnSpan": 12,
+          "position": {
+            "row": 1,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h4><strong>Online Latex Editor Using VueJS on Front-end and ASP.NET core on Back-end </strong>| Personal Project</h4>\n      <p>Build online Latex editing tool, compiler, login and authorization in Project II</p>\n      <ul>\n        <li>Build a simple structure to add, edit, delete, compile and display data added to MSSQL using ASP.NET</li>\n        <li>At the same time, build a simple interface displayed to users using VueJS</li>\n      </ul>\n      <p>Github: <a href=\"https://github.com/cuong23ng/LatexEditor-Client-side.git\">https://github.com/cuong23ng/LatexEditor-Client-side.git</a></p>"
+        },
+        {
+          "id": "content-50",
+          "name": "2",
+          "rowSpan": 1,
+          "columnSpan": 12,
+          "position": {
+            "row": 2,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h4><strong>Battleship Game Programmed in Java </strong>|<strong> </strong>Personal Project</h4>\n      <p>Build a ship shooting game using Java language in Project I</p>\n      <ul>\n        <li>Design simple interface design, capture mouse events</li>\n        <li>Apply simple Object-oriented programming knowledge</li>\n      </ul>\n      <p>Github: <a href=\"https://github.com/cuong23ng/BattleShip.git\">https://github.com/cuong23ng/BattleShip.git</a></p>"
+        },
+        {
+          "id": "content-51",
+          "name": "3",
+          "rowSpan": 1,
+          "columnSpan": 12,
+          "position": {
+            "row": 3,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h4><strong>Milktea store management software </strong>| Personal Project</h4>\n      <p>Build Milktea store software including displaying menu of store using data bending, filter by item, sort by price/name ... using VueJS</p>\n      <ul>\n        <li>Design simple interface design, capture mouse events</li><li>Apply simple Object-oriented programming knowledge</li>\n      </ul>\n      <p>Github: <a href=\"https://github.com/cuong23ng/BattleShip.git\">https://github.com/cuong23ng/milk-tea-store.git</a></p>"
+        }
+      ]
+    },
+    {
+      "id": "sidebar-54",
+      "name": "Extracurricular Activities",
+      "contents": [
+        {
+          "id": "content-53",
+          "name": "1",
+          "rowSpan": 1,
+          "columnSpan": 12,
+          "position": {
+            "row": 1,
+            "column": 1
+          },
+          "contentType": "text",
+          "htmlContent": "<h4><strong>HUST Innovation &amp; Entrepreneurship Club </strong>|<strong> </strong>2021 - 2023</h4>\n      <p>Member of communications team.</p>\n      <p>Participated in organizing workshops, seminars and many events in conjunction with the school, especially the TechStart competition.</p>"
+        }
+      ]
+    }
+  ]
+}
