@@ -1144,7 +1144,7 @@ Transclusion expansion time report (%,ms,calls,template)
     generateId('content'),
     'Avatar',
     2, 5, { row: 1, column: 8 }, 'text',
-    `<img src="../assets/ava.jpg" alt="avatar" style="width: 100%"/>`
+    `<img src="./assets/ava.jpg" alt="avatar" style="width: 100%"/>`
   );
 
   const sidebar4_1 = new SidebarItem(generateId('sidebar'), 'Information');
