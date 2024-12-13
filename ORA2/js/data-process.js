@@ -1071,8 +1071,16 @@ Transclusion expansion time report (%,ms,calls,template)
   // Tham khảo Wikipedia | Menu 6
   const content6_1_1 = new ContentItem(
     generateId('content'),
-    'Wiki link',
-    1, 12, { row: 1, column: 1}, "wikiSearch",
+    'intro',
+    1, 12, { row: 1, column: 1 }, "text",
+    `<p>Liệt kê các trang định nghĩa, thông tin, khái niệm từ Wikipedia, bằng công cụ Wikipedia search. Content type này thích hợp để dùng cho reference.</p>
+    <p>VD: Tìm kiếm một vài Wikipedia page liên quan đến chủ đề “Web technology” bằng cách nhập tên chủ đề vào thanh tìm kiếm.</p>`
+  );
+
+  const content6_1_2 = new ContentItem(
+    generateId('content'),
+    'Example',
+    1, 12, { row: 2, column: 1 }, "wikiSearch",
     `<article>
   <a target="_blank" href="https://en.wikipedia.org/?curid=33139">
     <h3>World Wide Web</h3>
@@ -1107,10 +1115,71 @@ Transclusion expansion time report (%,ms,calls,template)
 
   const sidebar6_1 = new SidebarItem(generateId('sidebar'), 'Tham khảo');
   sidebar6_1.addContent(content6_1_1);
+  sidebar6_1.addContent(content6_1_2);
+
+  const content6_2_1 = new ContentItem(
+    generateId('content'),
+    'intro',
+    1, 12, { row: 1, column: 1 }, "text",
+    `<p>Lấy hình ảnh bạn muốn từ Wikipedia bằng cách nhập đối tượng vào ô tìm kiếm.</p>
+    <p><strong>Lưu ý:</strong> chỉ lấy được hình ảnh của danh từ riêng.</p>
+    <p>Hình bên dưới lấy hình ảnh bản đồ thế giới bằng cách nhập danh từ riêng “map” vào thanh tìm kiếm Wikipedia Image Searching.</p>`
+  );
+
+  const content6_2_2 = new ContentItem(
+    generateId('content'),
+    'Example',
+    1, 12, { row: 2, column: 1 }, "wikiImage",
+    `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Physical_World_Map.svg/500px-Physical_World_Map.svg.png" alt="map" style="width: 100%">`
+  );
+
+  const sidebar6_2 = new SidebarItem(generateId('sidebar'), 'Wikipedia Searching Image');
+  sidebar6_2.addContent(content6_2_1);
+  sidebar6_2.addContent(content6_2_2);
+
+  const content6_3_1 = new ContentItem(
+    generateId('content'),
+    'intro',
+    1, 12, { row: 1, column: 1 }, "text",
+    `<p>Lấy dữ liệu văn bản từ một trang Wikipedia và hiển thị lên một Menu Top Item.</p>`
+  )
+
+  const content6_3_2 = new ContentItem(
+    generateId('content'),
+    'Example',
+    1, 12, { row: 2, column: 1 }, "wikiPage",
+    `<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
+      <p><b>Num</b> may refer to:</p>
+      <ul>
+        <li>Short for <a href="/wiki/Number" title="Number">number</a></li>
+        <li><a href="/wiki/Num_(god)" title="Num (god)">Num (god)</a>, the creator and high god of the Nenets people of Siberia</li>
+        <li>Short for the <a href="/wiki/Book_of_Numbers" title="Book of Numbers">Book of Numbers</a> of the Hebrew Bible</li>
+        <li><a href="/wiki/Khnum" title="Khnum">Khnum</a>, a god of Egyptian mythology</li>
+        <li><a href="/wiki/Mios_Num" title="Mios Num">Mios Num</a>, an island of western New Guinea</li>
+        <li><a href="/wiki/Num,_Nepal" title="Num, Nepal">Num, Nepal</a></li>
+        <li>num, the code for the <a href="/wiki/Niuafo%27ou_language" class="mw-redirect" title="Niuafo'ou language">Niuafo'ou language</a> of Tonga</li>
+      </ul>
+      <p><b>NUM</b> may refer to:</p>
+      <ul>
+        <li><a href="/wiki/National_Union_of_Manufacturers" class="mw-redirect" title="National Union of Manufacturers">National Union of Manufacturers</a></li>
+        <li><a href="/wiki/National_Union_of_Mineworkers_(Great_Britain)" title="National Union of Mineworkers (Great Britain)">National Union of Mineworkers (Great Britain)</a></li>
+        <li><a href="/wiki/National_Union_of_Mineworkers_(South_Africa)" title="National Union of Mineworkers (South Africa)">National Union of Mineworkers (South Africa)</a></li>
+        <li><a href="/wiki/National_University_of_Mongolia" title="National University of Mongolia">National University of Mongolia</a></li>
+        <li><a href="/wiki/New_Ulster_Movement" title="New Ulster Movement">New Ulster Movement</a></li>
+      </ul>
+    </div>`
+  );
+
+  const sidebar6_3 = new SidebarItem(generateId('sidebar'), 'Wikipedia Page Embedded');
+  sidebar6_3.addContent(content6_3_1);
+  sidebar6_3.addContent(content6_3_2);
+
 
   let menuId6 = generateId('top-menu');
   const topMenu6 = new TopMenuItem(menuId6, 'Tham khảo Wikipedia', getLinkFromId(menuId6));
   topMenu6.addSidebar(sidebar6_1);
+  topMenu6.addSidebar(sidebar6_2);
+  topMenu6.addSidebar(sidebar6_3);
 
   appData.addTopMenu(topMenu6);
 

@@ -353,6 +353,81 @@ function loadContent() {
         const hl = `<span class="${className}">${keyword}</span>`;
         return str.replace(new RegExp(keyword, 'gi'), hl);
       };  
+  } else if (selectedContent.contentType === "wikiImage") {
+    // Mở công cụ tìm kiếm Wikipedia
+    const searchTool = document.getElementById('wiki-search-tool');
+    searchTool.classList.remove('hidden');
+
+    const searchTermElem = document.querySelector('#search-term');
+    const searchResultElem = document.querySelector('#search-result');
+
+    // Reset dữ liệu
+    searchResultElem.innerHTML = "";
+
+    // Kiểm tra event nhập vào input
+    searchTermElem.addEventListener('input', function (event) {
+      search(event.target.value);
+    });
+
+    const debounce = (fn, delay = 500) => {
+      let timeoutId;
+      return (...args) => {
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+          fn.apply(null, args);
+        }, delay);
+      };
+    };
+
+    const search = debounce(async (searchTerm) => {
+      if (!searchTerm) {
+        // Reset the search result
+        searchResultElem.innerHTML = "";
+        return;
+      }
+
+      try {
+        // Make an API request
+        const url = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&titles=${searchTerm}&pithumbsize=500&format=json&origin=*`; 
+        const response = await fetch(url);
+        const searchResult = await response.json();
+        
+        // Tạo table header
+        searchResultElem.innerHTML = `<thead>
+              <th>Search result:</th>
+            </thead>`;
+
+        const pageId = Object.keys(searchResult.query.pages)[0]; // // Get the key of the page 
+        const sourceUrl = searchResult.query.pages[pageId].thumbnail.source;
+        
+        const searchResultBody = document.createElement('tbody');
+
+        // Tạo hàng
+        const articleRow = document.createElement('tr'); 
+        articleRow.className = "";
+
+        // Tạo table data để ảnh
+        const articleWiki = document.createElement('td');
+        const imageWiki = document.createElement('img');
+        imageWiki.src = sourceUrl.toString(); 
+        imageWiki.alt = searchTerm;
+
+        articleWiki.appendChild(imageWiki);
+        articleRow.appendChild(articleWiki);
+
+        searchResultBody.appendChild(articleRow);
+
+        searchResultElem.appendChild(searchResultBody);
+
+        tmpHtmlContent = `<img src="${sourceUrl.toString()}" alt="${searchTerm}" style="width: 100%"/>`;
+        renderContentPreviewLayout();
+
+      } catch (error) {
+        console.error(error);
+      }
+    }); 
   }
 
   // Render Preview Layout
