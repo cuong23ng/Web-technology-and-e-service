@@ -24,7 +24,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
     modalTitle.textContent = "Edit Content Layout";
     submitButton.textContent = "Save";
     document.getElementById('contentName').value = content.name;
-    document.getElementById('contentType').value = (content.contentType === "text") ? "text" : (content.contentType === "wikiSearch") ? "wikiSearch" : "wikiPage";
+    document.getElementById('contentType').value = (content.contentType === "text") ? "text" : (content.contentType === "wikiSearch") ? "wikiSearch" : (content.contentType === "wikiPage") ? "wikiPage" : "wikiImage";
     document.getElementById('layoutRow').value = content.position.row;
     document.getElementById('layoutColumn').value = content.position.column;
     document.getElementById('layoutRowSpan').value = content.rowSpan;
@@ -86,7 +86,7 @@ function openContentModal(mode, content = null, parentSidebarId, insertAfterInde
       const contentToEdit = content;
       if (contentToEdit) {
         contentToEdit.name = name;
-        contentToEdit.contentType = (contentType === "text") ? "text" : (contentType === "wikiSearch") ? "wikiSearch" : "wikiPage";
+        contentToEdit.contentType = (contentType === "text") ? "text" : (contentType === "wikiSearch") ? "wikiSearch" : (contentType === "wikiPage") ? "wikiPage" : "wikiImage";
         contentToEdit.position = { row: layoutRow, column: layoutColumn };
         contentToEdit.rowSpan = layoutRowSpan;
         contentToEdit.columnSpan = layoutColumnSpan;
@@ -270,7 +270,7 @@ function renderAdminContentsTable() {
 
     // Content type
     const tdContentType = document.createElement('td');
-    tdContentType.textContent = (content.contentType === "text") ? "Text docs" : (content.contentType === "wikiSearch") ? "Wikipedia search" : "Wikipedia page";
+    tdContentType.textContent = (content.contentType === "text") ? "Text docs" : (content.contentType === "wikiSearch") ? "Wikipedia search" : (content.contentType === "wikiPage") ? "Wikipedia page" : "Wikipedia image";
     tr.appendChild(tdContentType);
 
     // Layout Parameters
