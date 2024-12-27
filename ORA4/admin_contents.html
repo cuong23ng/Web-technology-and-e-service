@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <style>
+    /* Preview Layout */
+    #previewLayout {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); /* 12 cột */
+        grid-auto-rows: auto; /* Tự động cao hàng theo nội dung */
+        gap: 10px;
+        margin-top: 20px;
+        border: 2px solid #ccc;
+        padding: 10px;
+    }
+
+    .preview-box {
+        border: 2px solid #000;
+        background-color: #f9f9f9;
+        padding: 10px;
+        min-height: 200px; /* Thiết lập chiều cao tối thiểu */
+    }
+
+    .preview-box.highlight {
+        border-color: #007BFF;
+        background-color: #E7F1FF;
+    }
+
+    /* Help Icon */
+    .help-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    /* Quill Editor */
+    #editor-container {
+        height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div id="top-menu" class="w3-bar w3-black ora-dark ora-font-white w3-left-align w3-large w3-horizontal-scroll">
+      <!-- Navbar links will be loaded dymically based on top navigator -->
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="sidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-theme w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+    </a>
+    <h4 id="sidebar-title" class="w3-bar-item">
+        <strong></strong>
+    </h4>
+    <div id="sidebar-content">
+        <!-- Sidebar links will be loaded dynamically based on top navigator -->
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="overlay"></div>
+
+  <div class="w3-main" style="margin-left: 250px; margin-top: 3rem;">
+    <div class="w3-container">
+      <!-- Header with Help Icon -->
+      <header class="w3-container" style="position: relative;">
+        <h2>Admin Contents</h2>
+        <!-- Help Icon -->
+        <a href="instruction.html" target="_blank">
+          <i class="fa fa-info-circle fa-2x help-icon w3-text-theme" title="Help"></i>
+        </a>
+      </header>
+
+      <!-- Main Content -->
+      <div class="w3-container">
+        <!-- Form chỉnh sửa nội dung Content -->
+        <div id="content-edit-container">
+          <h3>Chỉnh sửa nội dung Content</h3>
+          <h4 id="content-name"></h4>
+          <div id="editor">
+            <!-- Trình soạn thảo tynyMCE hoặc WikiSearch Tool sẽ được khởi tạo tại đây -->
+          </div>
+          <div id="wiki-search-tool" class="w3-container w3-border w3-padding-16 w3-center hidden">
+            <img src="./assets/wikipedia-logo.png" alt="wikipedia" style="width: 20svb;">
+            <h1>Wikipedia Search</h1>
+            <input type="text" name="searchTerm" id="search-term" class="w3-input w3-border" placeholder="Enter a search term...">
+            <hr>
+
+            <table id="search-result" class="w3-table w3-border w3-bordered">
+              <!-- Searching Result sẽ hiển thị tại đây -->
+            </table>
+          </div>
+          <button class="w3-button w3-blue-gray" id="saveContentButton" style="margin-top: 10px;">Lưu</button>
+        </div>
+      </div>
+
+      <!-- Preview Layout -->
+      <div id="previewLayout">
+        <!-- Preview boxes sẽ được render bởi JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="w3-container w3-padding-32 ora-dark ora-font-white" style="margin-left: 250px;">
+    <div class="w3-row-padding">
+      <div class="w3-twothird">
+        <h2 class="w3-text-blue-gray">Web technologies and e-Services</h2>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3 class="w3-text-blue-gray">MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="index.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- END MAIN -->
+  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+  <script src="./js/authentication.js"></script>
+  <script src="./js/classes.js"></script>
+  <script src="./js/data-process.js"></script>
+  <script src="./js/load-site.js"></script>
+  <script src="./js/admin-contents.js"></script>
+  <script src="./js/admin-contents-layout.js"></script>
+  <script src="./js/admin-menu-left.js"></script>
+  <script src="./js/admin-page.js"></script>
+  <script src="./js/scripts.js"></script>
+
+  <div id="highlighter--hover-tools" style="display: none;">
+    <div id="highlighter--hover-tools--container">
+      <div class="highlighter--icon highlighter--icon-copy" title="Copy"></div>
+      <div class="highlighter--icon highlighter--icon-change-color" title="Change Color"></div>
+      <div class="highlighter--icon highlighter--icon-delete" title="Delete"></div>
+    </div>
+  </div>
+</body>
+</html>

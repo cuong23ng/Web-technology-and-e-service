@@ -1,0 +1,47 @@
+Chuyển hướng đăng nhập...
+
+<script src="./js/authentication.js"></script>
+<script src="./js/classes.js"></script>
+<script>
+  // Hàm chính xác thực và xử lý redirect
+  function authenticateAndRedirect(callback) {
+    // Lấy query string từ URL
+    const queryString = window.location.search;
+
+    // Sử dụng URLSearchParams để phân tích
+    const paramsAuth = new URLSearchParams(queryString);
+
+    // Lấy giá trị của tham số 'code'
+    const code = paramsAuth.get('code'); 
+
+    if (code) {
+      console.log("Code:", code);
+      const user = new User();
+      // Bắt đầu xử lý xác thực
+      getTokens(code)
+        .then(token => {
+          
+          user.updateAccessToken(token.access_token);
+          return getUserInfo(token.access_token);
+        })
+        .then(userData => {
+          console.log("User Data:", userData);
+          user.updateUserInfo(userData.email, userData.id, userData.picture);
+          saveUser(user);
+
+          // Gọi callback sau khi xử lý xong
+          if (typeof callback === 'function') {
+            callback();
+          }
+        })
+        .catch(err => console.error("Error during authentication:", err));
+    } else {
+      console.error("No 'code' parameter found in URL");
+    }
+  }
+
+  // Gọi hàm xác thực và chuyển hướng khi hoàn tất
+  authenticateAndRedirect(() => {
+    window.location.href = "https://cuong23ng.github.io/Web-technology-and-e-service/ORA4";
+  });
+</script>

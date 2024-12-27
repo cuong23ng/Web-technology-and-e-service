@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <style>
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .google {
+    background-color: #dd4b39;
+    color: white;
+  }
+
+  img {
+    width: 120vh;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .back-button {
+    position: fixed;
+    left: 2vh;
+    top: 2vh;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div class="back-button">
+    <a href="index.html">
+      <i class="fa fa-chevron-left" style="font-size:24px"></i>
+    </a>
+  </div>
+  <div class="grid-container">
+    <div 
+      class="grid-item" 
+      style="grid-column: 1 / 12; align-self: center; justify-self: center; justify-items: center;"
+    >
+      <h2 style="justify-self: center;">Login Web Application & E-services</h2>
+      <!-- <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=477392257340-8uqgrnqegn2j8ej06iqbb3vj2vn7f6ip.apps.googleusercontent.com&response_type=code&scope=openid%20email&redirect_uri=https%3A%2F%2Fcuong23ng.github.io/Web-technology-and-e-service/ORA4/login_process.html" class="w3-btn google">
+        <i class="fa fa-google fa-fw"></i> 
+        Login with Google
+      </a> -->
+
+      <button id="google-login-btn" class="w3-btn google">
+        <i class="fa fa-google fa-fw"></i> 
+        Login with Google
+      </button>
+    </div>
+    <div 
+      class="grid-item" 
+      style="grid-column: 12 / -1; justify-self: right;"
+    >
+      <img src="assets/bk2.jpg" alt="bk.png">
+    </div>
+  </div>
+
+  <script src="js/authentication.js"></script>
+  <script>
+    document.getElementById('google-login-btn').addEventListener("click", () => {
+      const SCOPES = [
+        'https://www.googleapis.com/auth/userinfo.email',
+        'https://www.googleapis.com/auth/gmail.readonly', // Scope Gmail cần thiết
+        'openid'
+      ].join(' ');
+
+    const params = {
+      client_id: '477392257340-8uqgrnqegn2j8ej06iqbb3vj2vn7f6ip.apps.googleusercontent.com',
+      redirect_uri: 'https://cuong23ng.github.io/Web-technology-and-e-service/ORA4/login_process.html',
+      response_type: 'code',
+      scope: SCOPES,
+      access_type: 'offline', // Để lấy refresh token
+      include_granted_scopes: 'true'
+    };
+
+    // Xây dựng URL xác thực
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams(params).toString()}`;
+
+    // Chuyển hướng người dùng đến trang đăng nhập Google
+    window.location.href = authUrl;
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+#admin-page h3 {
+  font-size: 18px;
+}
+
+.menu {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-menu {
+  display: flex;
+  align-items: center;
+}
+
+.item-menu-name {
+  display: inline;
+  font-size: 17px;
+  flex: 5;
+}
+
+.item-menu-name > input {
+  width: 50%;
+  /* height: 50%; */
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  padding: 0 5px;
+  /* border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 3px; */
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  opacity: 0.8;
+}
+
+.item-buttons {
+  flex: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-buttons > img {
+  height: 25px;
+  opacity: 0.8;
+  margin-left: 15px;
+  transition: transform 0.2s ease;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.item-buttons > img:hover {
+  opacity: 0.7;
+  transform: scale(1.02, 1.02);
+}
+
+#admin-page hr {
+  border-top: 1px dashed;
+  margin: 0;
+  margin: 12px 0;
+  opacity: 0.2;
+}
+
+#edit-layout-area > textarea {
+  height: 350px;
+  width: 65%;
+  font-family: 'Consolas';
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#edit-layout-area > button {
+  margin-left: 70%;
+  width: 100px;
+}
+
+/* TABLE */
+
+.table-drawn {
+  height: 820px;
+  font-size: 23px;
+}
+
+.table-drawn .row {
+  opacity: 0.9;
+}
+
+.table-drawn > h3 {
+  color: white;
+  background-color: rgba(255, 221, 51, 0.8);
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+}
+
+#admin-page table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 700px;
+  position: absolute;
+  opacity: 0.1;
+}
+#admin-page th, 
+#admin-page td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Editor */
+#editor, 
+[role="toolbar"] {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#editor {
+  height: 600px;
+  font-size: 25px;
+}
+
+.grid-container-admin-page {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+  justify-content: center;
+  gap: 7%;
+  margin-top: 10px;
+  align-items: center;
+}

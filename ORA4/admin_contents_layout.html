@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Admin Page</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/admin-page.css">
+  <style>
+    /* Preview Layout */
+    #previewLayout {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); /* 12 cột */
+        grid-auto-rows: 200px; /* Chiều cao mặc định cho mỗi hàng */
+        gap: 10px;
+        border: 2px solid #ccc;
+        padding: 10px;
+    }
+
+    .preview-box {
+        border: 2px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f9f9f9;
+        font-weight: bold;
+        /* Đảm bảo box không bị tràn ra ngoài */
+        overflow: hidden;
+    }
+
+    .preview-box:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Help Icon */
+    .help-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div id="top-menu" class="w3-bar ora-dark ora-font-white w3-top w3-left-align w3-large w3-horizontal-scroll"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="sidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-theme w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+    </a>
+    <h4 id="sidebar-title" class="w3-bar-item">
+        <strong></strong>
+    </h4>
+    <div id="sidebar-content">
+        <!-- Sidebar links will be loaded dynamically based on top navigator -->
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="overlay"></div>
+
+    <!-- Main content -->
+  <div class="w3-main" style="margin-left:250px; margin-top: 100px;">
+    <!-- Main Content -->
+    <div class="w3-container">
+      <!-- Header with Help Icon -->
+      <header class="w3-container" style="position: relative;">
+        <h2 class="w3-text-theme">Admin Contents Layout</h2>
+        <h4 id="content-name"></h4>
+        <!-- Help Icon -->
+        <a href="instruction.html" target="_blank">
+          <i class="fa fa-info-circle fa-2x help-icon w3-text-theme" title="Help"></i>
+        </a>
+      </header>
+
+      <!-- Bảng danh sách Contents Layout -->
+      <table class="w3-table-all w3-hoverable">
+      <thead>
+        <tr class="w3-light-gray">
+          <th>Tên Content</th>
+          <th>Content type</th>
+          <th>Thông Số Layout</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+        <tbody id="admin-contents-table-body">
+          <!-- Nội dung bảng sẽ được render bởi JavaScript -->
+        </tbody>
+      </table>
+
+      <h3>Preview Layout</h3>
+      <!-- Preview Layout -->
+      <div id="previewLayout">
+        <!-- Preview boxes sẽ được render bởi JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding/Editing Content Layout -->
+  <div id="contentModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:700px">
+      <header class="w3-container w3-light-blue">
+        <span onclick="closeContentModal()" class="w3-button w3-display-topright">&times;</span>
+        <h2 id="contentModalTitle">Thêm Content Layout</h2>
+      </header>
+      <div class="w3-container">
+        <form id="contentForm">
+          <p>
+            <label>Tên Content</label>
+            <input class="w3-input w3-border" type="text" id="contentName" required>
+          </p>
+          <p>
+            <label>Content type</label>
+            <select id="contentType" class="w3-input w3-border">
+              <option value="text">Text docs</option>
+              <option value="wikiSearch">Wikipedia search</option>
+              <option value="wikiPage">Wikipedia page</option>
+              <option value="wikiImage">Wikipedia image</option>
+            </select>
+          </p>
+          <hr>
+
+          <h4>Thông Số Layout</h4>
+          <p>
+            <label>Grid Row</label>
+            <input class="w3-input w3-border" type="number" id="layoutRow" min="1" required>
+          </p>
+
+          <p>
+            <label>Grid Column</label>
+            <input class="w3-input w3-border" type="number" id="layoutColumn" min="1" required>
+          </p>
+
+          <p>
+            <label>Row Span</label>
+            <input class="w3-input w3-border" type="number" id="layoutRowSpan" min="1" value="1" required>
+          </p>
+
+          <p>
+            <label>Column Span</label>
+            <input class="w3-input w3-border" type="number" id="layoutColumnSpan" min="1" value="1" required>
+          </p>
+
+          <p>
+            <button class="w3-button w3-light-gray" type="submit"  id="contentModalSubmitButton">Lưu</button>
+          </p>
+        </form>
+      </div>
+      <!-- <footer class="w3-container w3-theme-d1">
+          <p>Admin Panel</p>
+      </footer> -->
+    </div>
+  </div>
+
+  <!-- Confirmation Modal for Deleting Content Layout -->
+  <div id="confirmContentDeleteModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:500px">
+      <header class="w3-container w3-light-blue">
+        <span onclick="closeConfirmContentDeleteModal()" class="w3-button w3-display-topright">&times;</span>
+        <h2>Xác Nhận Xóa</h2>
+      </header>
+
+      <div class="w3-container">
+        <p>Bạn có chắc chắn muốn xóa Content này?</p>
+        <p>
+          <button class="w3-button w3-red" id="confirmDeleteContentButton">Xóa</button>
+          <button class="w3-button w3-light-gray" onclick="closeConfirmContentDeleteModal()">Hủy</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="w3-container w3-padding-32 ora-dark ora-font-white" style="margin-left: 250px;">
+    <div class="w3-row-padding">
+      <div class="w3-twothird">
+        <h2 class="w3-text-blue-gray">Web technologies and e-Services</h2>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3 class="w3-text-blue-gray">MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="index.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- END MAIN -->
+  <script src="./js/authentication.js"></script>
+  <script src="./js/classes.js"></script>
+  <script src="./js/data-process.js"></script>
+  <script src="./js/load-site.js"></script>
+  <script src="./js/admin-contents-layout.js"></script>
+  <script src="./js/admin-menu-left.js"></script>
+  <script src="./js/admin-page.js"></script>
+  <script src="./js/scripts.js"></script>
+
+  <div id="highlighter--hover-tools" style="display: none;">
+    <div id="highlighter--hover-tools--container">
+      <div class="highlighter--icon highlighter--icon-copy" title="Copy"></div>
+      <div class="highlighter--icon highlighter--icon-change-color" title="Change Color"></div>
+      <div class="highlighter--icon highlighter--icon-delete" title="Delete"></div>
+    </div>
+  </div>
+</body>
+</html>

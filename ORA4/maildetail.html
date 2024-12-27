@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Gmail</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-dark-black.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/color.css">
+  <link rel="stylesheet" href="./css/styles.css">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div id="top-menu" class="w3-bar ora-dark ora-font-white w3-top w3-left-align w3-large w3-horizontal-scroll"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left hidden" id="sidebar" style="">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-theme w3-hide-large" title="Close Menu">
+        <i class="fa fa-remove"></i>
+    </a>
+    <h4 id="sidebar-title" class="w3-bar-item">
+        <strong></strong>
+    </h4>
+    <div id="sidebar-content">
+        <!-- Sidebar links will be loaded dynamically based on top navigator -->
+    </div>
+  </nav>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="overlay"></div>
+
+  <!-- Main content -->
+  <div class="w3-main" style="margin-left: 250px; margin-top: 3rem;">
+    <div class="w3-container" style="overflow-wrap: break-word;">
+      <div id="content-container"></div>
+    </div>
+  </div>
+
+  <footer id="myFooter" class="w3-container w3-padding-32 ora-dark ora-font-white" style="margin-left: 250px;">
+    <div class="w3-row-padding w3-left-align">
+      <div class="w3-twothird">
+        <h2 class="w3-text-blue-gray">Web technologies and e-Services</h2>
+        <p>Hanoi University of Science and Technology</p>
+        <p>Nguyen Hung Cuong - 20215264</p>
+      </div>
+    
+      <div class="w3-third">
+        <h3 class="w3-text-blue-gray">MENU</h3>
+        <ul class="w3-ul w3-hoverable">
+          <li class="w3-padding-16">
+            <img src="assets/logo.png" class="w3-left w3-margin-right" style="width:25px">
+            <a href="index.html" class="w3-large" style="text-decoration: none;">Home</a>
+            <!-- <span class="w3-large">Home</span><br> -->
+            <!-- <span>Sed mattis nunc</span> -->
+          </li>
+          <li class="w3-padding-16">
+            <a href="ThongTinSinhVien.html" class="w3-large" style="text-decoration: none;">About me</a>
+            <!-- <span class="w3-large">About me</span><br> -->
+            <!-- <span>Praes tinci sed</span> -->
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- END MAIN -->
+  <script src="./js/authentication.js"></script>
+  <script src="./js/classes.js"></script>
+  <script src="./js/data-process.js"></script>
+  <script src="./js/load-site.js"></script>
+  <script src="./js/admin-contents-layout.js"></script>
+  <script src="./js/admin-contents.js"></script>
+  <script src="./js/admin-menu-left.js"></script>
+  <script src="./js/admin-page.js"></script>
+  <script src="./js/scripts.js"></script>
+
+  <div id="highlighter--hover-tools" style="display: none;">
+    <div id="highlighter--hover-tools--container">
+      <div class="highlighter--icon highlighter--icon-copy" title="Copy"></div>
+      <div class="highlighter--icon highlighter--icon-change-color" title="Change Color"></div>
+      <div class="highlighter--icon highlighter--icon-delete" title="Delete"></div>
+    </div>
+  </div>
+</body>
+</html>
